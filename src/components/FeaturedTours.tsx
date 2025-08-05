@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Users, Star, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import amboseliKilimanjaro from "@/assets/amboseli-kilimanjaro.jpg";
 import dianiBeach from "@/assets/diani-beach.jpg";
 
@@ -112,8 +113,10 @@ const FeaturedTours = () => {
                   {tour.price}
                   <span className="text-sm font-normal text-muted-foreground">/person</span>
                 </div>
-                <Button variant="safari" size="sm">
-                  View Details
+                <Button variant="safari" size="sm" asChild>
+                  <Link to="/tours">
+                    View Details
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>
@@ -121,8 +124,10 @@ const FeaturedTours = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
-            View All Tours
+          <Button variant="outline" size="lg" asChild>
+            <Link to="/tours">
+              View All Tours
+            </Link>
           </Button>
         </div>
       </div>
