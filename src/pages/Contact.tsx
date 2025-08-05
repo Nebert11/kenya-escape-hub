@@ -184,13 +184,17 @@ const Contact = () => {
                     For faster responses, reach out to us on WhatsApp or call us directly.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button variant="outline" className="flex-1">
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      WhatsApp Us
+                    <Button variant="outline" className="flex-1" asChild>
+                      <a href="https://wa.me/254712345678?text=Hello,%20I%20would%20like%20to%20inquire%20about%20your%20tour%20packages" target="_blank" rel="noopener noreferrer">
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        WhatsApp Us
+                      </a>
                     </Button>
-                    <Button variant="safari" className="flex-1">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Call Now
+                    <Button variant="safari" className="flex-1" asChild>
+                      <a href="tel:+254712345678">
+                        <Phone className="w-4 h-4 mr-2" />
+                        Call Now
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
