@@ -42,12 +42,16 @@ const Navbar = () => {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm">
-              <Phone className="w-4 h-4 mr-2" />
-              Call Now
+            <Button variant="outline" size="sm" asChild>
+              <a href="tel:+254712345678">
+                <Phone className="w-4 h-4 mr-2" />
+                Call Now
+              </a>
             </Button>
-            <Button variant="safari" size="sm">
-              Book Now
+            <Button variant="safari" size="sm" asChild>
+              <Link to="/contact">
+                Book Now
+              </Link>
             </Button>
           </div>
 
@@ -78,12 +82,16 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" size="sm">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call Now
+                <Button variant="outline" size="sm" asChild>
+                  <a href="tel:+254712345678">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Call Now
+                  </a>
                 </Button>
-                <Button variant="safari" size="sm">
-                  Book Now
+                <Button variant="safari" size="sm" asChild>
+                  <Link to="/contact">
+                    Book Now
+                  </Link>
                 </Button>
               </div>
             </div>
