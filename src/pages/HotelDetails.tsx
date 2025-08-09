@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { MapPin, Star, Wifi, Car, Coffee, Waves, ArrowLeft } from "lucide-react";
 import { Link, useLocation, useParams } from "react-router-dom";
 
@@ -37,6 +40,31 @@ const HotelDetails = () => {
   const { state } = useLocation() as { state?: { item?: Hotel } };
   const { id } = useParams();
   const hotel = state?.item;
+
+  // SEO: title, meta description, and canonical
+  useEffect(() => {
+    const title = hotel ? `${hotel.name} | Hotel Details` : "Hotel Details";
+    document.title = title;
+
+    const desc = hotel?.description?.slice(0, 150) ||
+      "Explore hotel details, rooms, dining, restaurants & bars.";
+
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "description");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", desc);
+
+    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!link) {
+      link = document.createElement("link");
+      link.setAttribute("rel", "canonical");
+      document.head.appendChild(link);
+    }
+    link.setAttribute("href", window.location.href);
+  }, [hotel]);
 
   return (
     <div className="min-h-screen bg-background">

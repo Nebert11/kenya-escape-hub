@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { MapPin, Clock, Users, Star, ArrowLeft } from "lucide-react";
 import { Link, useLocation, useParams } from "react-router-dom";
+import masaiHero from "@/assets/masai-mara-hero.jpg";
+import amboseliImg from "@/assets/amboseli-kilimanjaro.jpg";
+import dianiImg from "@/assets/diani-beach.jpg";
 
 interface Tour {
   id: number;
@@ -22,6 +27,31 @@ const TourDetails = () => {
   const { state } = useLocation() as { state?: { item?: Tour } };
   const { id } = useParams();
   const tour = state?.item;
+
+  // SEO: title, meta description, and canonical
+  useEffect(() => {
+    const title = tour ? `${tour.title} | Tour Details` : "Tour Details";
+    document.title = title;
+
+    const desc = tour?.description?.slice(0, 150) ||
+      "Explore tour images and destination highlights.";
+
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "description");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", desc);
+
+    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!link) {
+      link = document.createElement("link");
+      link.setAttribute("rel", "canonical");
+      document.head.appendChild(link);
+    }
+    link.setAttribute("href", window.location.href);
+  }, [tour]);
 
   return (
     <div className="min-h-screen bg-background">
