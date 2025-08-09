@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, Users, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Tours = () => {
   const tours = [
@@ -121,7 +122,11 @@ const Tours = () => {
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold text-primary">{tour.price}</span>
-                      <Button variant="safari">Book Now</Button>
+                      <Button variant="safari" asChild>
+                        <Link to={`/tours/${tour.id}`} state={{ item: tour }}>
+                          Book Now
+                        </Link>
+                      </Button>
                     </div>
                   </div>
                 </CardContent>

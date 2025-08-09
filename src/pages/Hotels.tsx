@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Star, Wifi, Car, Coffee, Waves } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hotels = () => {
   const hotels = [
@@ -140,7 +141,11 @@ const Hotels = () => {
                         <span className="text-2xl font-bold text-primary">{hotel.price}</span>
                         <span className="text-sm text-muted-foreground">/night</span>
                       </div>
-                      <Button variant="safari">Book Now</Button>
+                      <Button variant="safari" asChild>
+                        <Link to={`/hotels/${hotel.id}`} state={{ item: hotel }}>
+                          Book Now
+                        </Link>
+                      </Button>
                     </div>
                   </div>
                 </CardContent>
