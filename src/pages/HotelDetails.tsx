@@ -114,19 +114,148 @@ const HotelDetails = () => {
 
                 <p className="mt-6 text-lg text-muted-foreground max-w-3xl">{hotel.description}</p>
 
-                {!!hotel.amenities?.length && (
-                  <div className="mt-6">
-                    <p className="text-sm font-medium mb-2">Amenities:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {hotel.amenities.map((amenity, index) => (
-                        <div key={index} className="flex items-center gap-1 text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded">
-                          {getAmenityIcon(amenity)}
-                          {amenity}
-                        </div>
+                <Tabs defaultValue="overview" className="mt-8">
+                  <TabsList className="mb-4">
+                    <TabsTrigger value="overview">Overview</TabsTrigger>
+                    <TabsTrigger value="rooms">Rooms</TabsTrigger>
+                    <TabsTrigger value="dining">Dishes</TabsTrigger>
+                    <TabsTrigger value="venues">Restaurants &amp; Bars</TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="overview">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>About {hotel.name}</CardTitle>
+                        <CardDescription>
+                          Nestled in {hotel.location}, {hotel.name} offers an immersive stay blending comfort and local charm. Enjoy attentive service, thoughtfully designed spaces, and easy access to nearby attractions.
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        {!!hotel.amenities?.length && (
+                          <div className="mt-2">
+                            <p className="text-sm font-medium mb-2">Amenities</p>
+                            <div className="flex flex-wrap gap-2">
+                              {hotel.amenities.map((amenity, index) => (
+                                <div
+                                  key={index}
+                                  className="flex items-center gap-1 text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded"
+                                >
+                                  {getAmenityIcon(amenity)}
+                                  {amenity}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+
+                  <TabsContent value="rooms">
+                    <div className="grid gap-6 sm:grid-cols-2">
+                      {[
+                        {
+                          name: "Deluxe Room",
+                          beds: "1 King Bed",
+                          size: "35m²",
+                          price: hotel.price,
+                          desc: "Spacious room with city or garden views, ideal for couples and solo travelers.",
+                          image: hotel.image,
+                        },
+                        {
+                          name: "Family Suite",
+                          beds: "2 Queen Beds",
+                          size: "55m²",
+                          price: hotel.price,
+                          desc: "A two-room suite perfect for families, with a cozy lounge area.",
+                          image: hotel.image,
+                        },
+                        {
+                          name: "Ocean View Suite",
+                          beds: "1 King Bed",
+                          size: "45m²",
+                          price: hotel.price,
+                          desc: "Premium suite featuring panoramic views and a private balcony.",
+                          image: hotel.image,
+                        },
+                        {
+                          name: "Garden Cottage",
+                          beds: "1 King + Sofa Bed",
+                          size: "60m²",
+                          price: hotel.price,
+                          desc: "Standalone cottage surrounded by lush greenery for extra privacy.",
+                          image: hotel.image,
+                        },
+                      ].map((room, i) => (
+                        <Card key={i} className="overflow-hidden">
+                          <img
+                            src={room.image}
+                            alt={`${room.name} at ${hotel.name}`}
+                            className="w-full h-40 object-cover"
+                            loading="lazy"
+                          />
+                          <CardHeader>
+                            <CardTitle className="text-lg">{room.name}</CardTitle>
+                            <CardDescription>
+                              {room.beds} • {room.size} • From {room.price} / night
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-sm text-muted-foreground mb-4">{room.desc}</p>
+                            <Button asChild variant="safari" size="sm">
+                              <Link to={`/contact?type=hotel&id=${hotel.id}&name=${encodeURIComponent(hotel.name)}&room=${encodeURIComponent(room.name)}`}>
+                                Book this room
+                              </Link>
+                            </Button>
+                          </CardContent>
+                        </Card>
                       ))}
                     </div>
-                  </div>
-                )}
+                  </TabsContent>
+
+                  <TabsContent value="dining">
+                    <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+                      {[
+                        { name: "Swahili Coconut Curry", desc: "Aromatic curry with coastal spices, served with coconut rice." },
+                        { name: "Grilled Tilapia", desc: "Fresh catch with lemon-herb butter and seasonal greens." },
+                        { name: "Nyama Choma", desc: "Charcoal-grilled beef with kachumbari and ugali." },
+                        { name: "Vegetarian Pilau", desc: "Fragrant rice pilaf with garden vegetables and spices." },
+                        { name: "Chapati Wraps", desc: "Soft chapati with spiced chicken or veggies and chutney." },
+                        { name: "Tropical Fruit Platter", desc: "Pineapple, mango, and passion fruit medley." },
+                      ].map((dish, i) => (
+                        <Card key={i}>
+                          <CardHeader>
+                            <CardTitle className="text-base">{dish.name}</CardTitle>
+                            <CardDescription>{dish.desc}</CardDescription>
+                          </CardHeader>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="venues">
+                    <div className="grid gap-6 sm:grid-cols-2">
+                      {[
+                        { name: "Savannah Restaurant", type: "All-day dining", hours: "6:30 AM - 10:30 PM" },
+                        { name: "Sunset Grill", type: "Poolside BBQ", hours: "12:00 PM - 8:00 PM" },
+                        { name: "Kilimanjaro Bar", type: "Cocktail lounge", hours: "4:00 PM - 1:00 AM" },
+                        { name: "Coffee Lounge", type: "Café & pastries", hours: "7:00 AM - 9:00 PM" },
+                      ].map((v, i) => (
+                        <Card key={i}>
+                          <CardHeader>
+                            <CardTitle className="text-base">{v.name}</CardTitle>
+                            <CardDescription>{v.type} • {v.hours}</CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-sm text-muted-foreground">
+                              Enjoy signature specialties, friendly service, and a relaxed ambiance.
+                            </p>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+                </Tabs>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
                   <Button variant="safari" size="lg" asChild>

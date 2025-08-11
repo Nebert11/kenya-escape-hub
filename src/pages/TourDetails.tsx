@@ -84,6 +84,50 @@ const TourDetails = () => {
               ) : null}
             </header>
 
+            <section className="py-8 bg-muted/30">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-2xl font-semibold mb-4">Destination Highlights</h2>
+                <Carousel opts={{ loop: true }}>
+                  <CarouselContent>
+                    {[
+                      {
+                        src: tour.image || masaiHero,
+                        title: tour.title,
+                        caption: "Signature view from this destination — a perfect start to your adventure.",
+                      },
+                      {
+                        src: amboseliImg,
+                        title: "Wildlife Plains",
+                        caption: "Open savannahs teeming with wildlife and dramatic horizons.",
+                      },
+                      {
+                        src: dianiImg,
+                        title: "Coastal Escape",
+                        caption: "Pristine beaches and turquoise waters ideal for relaxation.",
+                      },
+                    ].map((slide, i) => (
+                      <CarouselItem key={i} className="">
+                        <div className="relative overflow-hidden rounded-md">
+                          <img
+                            src={slide.src}
+                            alt={`${slide.title} highlight image`}
+                            className="w-full h-[280px] md:h-[420px] object-cover"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/80 to-transparent p-4">
+                            <p className="text-sm font-medium">{slide.title}</p>
+                            <p className="text-xs text-muted-foreground">{slide.caption}</p>
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </Carousel>
+              </div>
+            </section>
+
             <section className="py-10">
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-start justify-between gap-4">
