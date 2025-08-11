@@ -8,6 +8,13 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { MapPin, Star, Wifi, Car, Coffee, Waves, ArrowLeft } from "lucide-react";
 import { Link, useLocation, useParams } from "react-router-dom";
 
+import dish1 from "@/assets/hotel/dishes/dish-1.jpg";
+import dish2 from "@/assets/hotel/dishes/dish-2.jpg";
+import dish3 from "@/assets/hotel/dishes/dish-3.jpg";
+import venue1 from "@/assets/hotel/venues/venue-1.jpg";
+import venue2 from "@/assets/hotel/venues/venue-2.jpg";
+import venue3 from "@/assets/hotel/venues/venue-3.jpg";
+
 interface Hotel {
   id: number;
   name: string;
@@ -223,7 +230,13 @@ const HotelDetails = () => {
                         { name: "Chapati Wraps", desc: "Soft chapati with spiced chicken or veggies and chutney." },
                         { name: "Tropical Fruit Platter", desc: "Pineapple, mango, and passion fruit medley." },
                       ].map((dish, i) => (
-                        <Card key={i}>
+                        <Card key={i} className="overflow-hidden">
+                          <img
+                            src={[dish1, dish2, dish3][i % 3]}
+                            alt={`${dish.name} at ${hotel.name}`}
+                            className="w-full h-40 object-cover"
+                            loading="lazy"
+                          />
                           <CardHeader>
                             <CardTitle className="text-base">{dish.name}</CardTitle>
                             <CardDescription>{dish.desc}</CardDescription>
@@ -241,7 +254,13 @@ const HotelDetails = () => {
                         { name: "Kilimanjaro Bar", type: "Cocktail lounge", hours: "4:00 PM - 1:00 AM" },
                         { name: "Coffee Lounge", type: "Café & pastries", hours: "7:00 AM - 9:00 PM" },
                       ].map((v, i) => (
-                        <Card key={i}>
+                        <Card key={i} className="overflow-hidden">
+                          <img
+                            src={[venue1, venue2, venue3][i % 3]}
+                            alt={`${v.name} - ${v.type}`}
+                            className="w-full h-40 object-cover"
+                            loading="lazy"
+                          />
                           <CardHeader>
                             <CardTitle className="text-base">{v.name}</CardTitle>
                             <CardDescription>{v.type} • {v.hours}</CardDescription>
