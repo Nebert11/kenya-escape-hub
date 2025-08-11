@@ -48,6 +48,61 @@ const HotelDetails = () => {
   const { id } = useParams();
   const hotel = state?.item;
 
+  const defaultDishes = [
+    { name: "Swahili Coconut Curry", desc: "Aromatic curry with coastal spices, served with coconut rice.", image: dish1 },
+    { name: "Grilled Tilapia", desc: "Fresh catch with lemon-herb butter and seasonal greens.", image: dish2 },
+    { name: "Nyama Choma", desc: "Charcoal-grilled beef with kachumbari and ugali.", image: dish3 },
+    { name: "Vegetarian Pilau", desc: "Fragrant rice pilaf with garden vegetables and spices.", image: dish1 },
+    { name: "Chapati Wraps", desc: "Soft chapati with spiced chicken or veggies and chutney.", image: dish2 },
+    { name: "Tropical Fruit Platter", desc: "Pineapple, mango, and passion fruit medley.", image: dish3 },
+  ];
+
+  const diningByHotel: Record<number, { name: string; desc: string; image: string }[]> = {
+    1: [
+      { name: "Nyama Choma (Mara Style)", desc: "Charcoal-grilled beef with kachumbari salsa by the campfire.", image: dish3 },
+      { name: "Goat Pilau", desc: "Spiced rice with tender goat and coastal aromatics.", image: dish2 },
+      { name: "Pumpkin Coconut Soup", desc: "Creamy soup with roasted pumpkin and coconut.", image: dish1 },
+    ],
+    2: [
+      { name: "Kilimanjaro Tilapia", desc: "Pan-seared tilapia with lemon-herb butter.", image: dish2 },
+      { name: "Coconut Vegetable Curry", desc: "Velvety curry with fresh garden vegetables.", image: dish1 },
+      { name: "Masala Fries", desc: "Crispy fries tossed in tangy masala sauce.", image: dish3 },
+    ],
+    3: [
+      { name: "Seafood Platter", desc: "Grilled prawns, calamari, and fish with tropical salsa.", image: dish2 },
+      { name: "Tropical Ceviche", desc: "Citrus-cured fish with mango and passion fruit.", image: dish3 },
+      { name: "Coconut Curry", desc: "Coastal curry with aromatic spices and coconut milk.", image: dish1 },
+    ],
+  };
+
+  const defaultVenues = [
+    { name: "Savannah Restaurant", type: "All-day dining", hours: "6:30 AM - 10:30 PM", image: venue1 },
+    { name: "Kilimanjaro Bar", type: "Cocktail lounge", hours: "4:00 PM - 1:00 AM", image: venue2 },
+    { name: "Coffee Lounge", type: "Café & pastries", hours: "7:00 AM - 9:00 PM", image: venue3 },
+    { name: "Sunset Grill", type: "Poolside BBQ", hours: "12:00 PM - 8:00 PM", image: venue2 },
+  ];
+
+  const venuesByHotel: Record<number, { name: string; type: string; hours: string; image: string }[]> = {
+    1: [
+      { name: "Boma Bar", type: "Open-air lounge", hours: "5:00 PM - 12:00 AM", image: venue2 },
+      { name: "River Deck", type: "Al fresco dining", hours: "12:00 PM - 10:00 PM", image: venue1 },
+      { name: "Savannah Restaurant", type: "All-day dining", hours: "6:30 AM - 10:30 PM", image: venue3 },
+    ],
+    2: [
+      { name: "Summit Grill", type: "Steak & grill", hours: "12:00 PM - 10:30 PM", image: venue1 },
+      { name: "Amboseli Lounge", type: "Cocktails & jazz", hours: "4:00 PM - 12:30 AM", image: venue3 },
+      { name: "Pool Bar", type: "Snacks & smoothies", hours: "10:00 AM - 7:00 PM", image: venue2 },
+    ],
+    3: [
+      { name: "Beachfront Restaurant", type: "Seafood & Mediterranean", hours: "12:00 PM - 10:00 PM", image: venue1 },
+      { name: "Sunset Bar", type: "Sundowners & tapas", hours: "4:00 PM - 12:00 AM", image: venue2 },
+      { name: "Coffee Lounge", type: "Café & pastries", hours: "7:00 AM - 9:00 PM", image: venue3 },
+    ],
+  };
+
+  const dining = diningByHotel[hotel?.id ?? -1] || defaultDishes;
+  const venues = venuesByHotel[hotel?.id ?? -1] || defaultVenues;
+
   // SEO: title, meta description, and canonical
   useEffect(() => {
     const title = hotel ? `${hotel.name} | Hotel Details` : "Hotel Details";
@@ -222,17 +277,10 @@ const HotelDetails = () => {
 
                   <TabsContent value="dining">
                     <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-                      {[
-                        { name: "Swahili Coconut Curry", desc: "Aromatic curry with coastal spices, served with coconut rice." },
-                        { name: "Grilled Tilapia", desc: "Fresh catch with lemon-herb butter and seasonal greens." },
-                        { name: "Nyama Choma", desc: "Charcoal-grilled beef with kachumbari and ugali." },
-                        { name: "Vegetarian Pilau", desc: "Fragrant rice pilaf with garden vegetables and spices." },
-                        { name: "Chapati Wraps", desc: "Soft chapati with spiced chicken or veggies and chutney." },
-                        { name: "Tropical Fruit Platter", desc: "Pineapple, mango, and passion fruit medley." },
-                      ].map((dish, i) => (
+                      {dining.map((dish, i) => (
                         <Card key={i} className="overflow-hidden">
                           <img
-                            src={[dish1, dish2, dish3][i % 3]}
+                            src={dish.image}
                             alt={`${dish.name} at ${hotel.name}`}
                             className="w-full h-40 object-cover"
                             loading="lazy"
@@ -248,15 +296,10 @@ const HotelDetails = () => {
 
                   <TabsContent value="venues">
                     <div className="grid gap-6 sm:grid-cols-2">
-                      {[
-                        { name: "Savannah Restaurant", type: "All-day dining", hours: "6:30 AM - 10:30 PM" },
-                        { name: "Sunset Grill", type: "Poolside BBQ", hours: "12:00 PM - 8:00 PM" },
-                        { name: "Kilimanjaro Bar", type: "Cocktail lounge", hours: "4:00 PM - 1:00 AM" },
-                        { name: "Coffee Lounge", type: "Café & pastries", hours: "7:00 AM - 9:00 PM" },
-                      ].map((v, i) => (
+                      {venues.map((v, i) => (
                         <Card key={i} className="overflow-hidden">
                           <img
-                            src={[venue1, venue2, venue3][i % 3]}
+                            src={v.image}
                             alt={`${v.name} - ${v.type}`}
                             className="w-full h-40 object-cover"
                             loading="lazy"
