@@ -38,7 +38,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <MapPin className="h-8 w-8 text-safari-gold" />
-              <span className="text-2xl font-bold">Kenya Escape Hub</span>
+              <span className="text-2xl font-bold">Mambo Safaris</span>
             </div>
             <p className="text-primary-foreground/80 mb-6 max-w-md">
               Your trusted partner for unforgettable Kenyan adventures. Experience the best of wildlife, 
@@ -49,11 +49,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Phone className="h-5 w-5 mr-3 text-safari-gold" />
-                <span>+254 700 123 456</span>
+                <span>+254711278366</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 mr-3 text-safari-gold" />
-                <span>info@kenyaescapehub.com</span>
+                <span>info@mambosafaris.com</span>
               </div>
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 mt-1 text-safari-gold" />
@@ -117,7 +117,7 @@ const Footer = () => {
             ))}
           </div>
           <p className="text-primary-foreground/60">
-            © 2024 Kenya Escape Hub. All rights reserved.
+            © 2024 Mambo Safaris. All rights reserved.
           </p>
         </div>
       </div>

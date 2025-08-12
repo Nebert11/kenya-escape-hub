@@ -12,13 +12,13 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+254 712 345 678", "+254 720 123 456"],
+      details: ["+254711278366"],
       description: "Available 24/7 for emergencies"
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@kenyaescapehub.com", "bookings@kenyaescapehub.com"],
+      details: ["info@mambosafaris.com", "bookings@mambosafaris.com"],
       description: "We respond within 2 hours"
     },
     {
@@ -30,7 +30,7 @@ const Contact = () => {
     {
       icon: MessageCircle,
       title: "WhatsApp",
-      details: ["+254 712 345 678"],
+      details: ["+254711278366"],
       description: "Quick responses for urgent inquiries"
     }
   ];
@@ -185,13 +185,13 @@ const Contact = () => {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button variant="outline" className="flex-1" asChild>
-                      <a href="https://wa.me/254712345678?text=Hello,%20I%20would%20like%20to%20inquire%20about%20your%20tour%20packages" target="_blank" rel="noopener noreferrer">
+                      <a href="https://wa.me/254711278366?text=Hello,%20I%20would%20like%20to%20inquire%20about%20your%20tour%20packages" target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="w-4 h-4 mr-2" />
                         WhatsApp Us
                       </a>
                     </Button>
                     <Button variant="safari" className="flex-1" asChild>
-                      <a href="tel:+254712345678">
+                      <a href="tel:+254711278366">
                         <Phone className="w-4 h-4 mr-2" />
                         Call Now
                       </a>
@@ -210,7 +210,7 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    <p className="font-medium">Kenya Escape Hub</p>
+                    <p className="font-medium">Mambo Safaris</p>
                     <p className="text-muted-foreground">Kimathi Street, 3rd Floor</p>
                     <p className="text-muted-foreground">Nairobi CBD, Kenya</p>
                     <p className="text-muted-foreground">P.O. Box 12345-00100</p>

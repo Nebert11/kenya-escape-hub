@@ -23,7 +23,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center space-x-2">
             <MapPin className="h-8 w-8 text-primary" />
             <span className="text-2xl font-bold bg-gradient-safari bg-clip-text text-transparent">
-              Kenya Escape Hub
+              Mambo Safaris
             </span>
           </Link>
 
@@ -43,7 +43,7 @@ const Navbar = () => {
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Button variant="outline" size="sm" asChild>
-              <a href="tel:+254712345678">
+              <a href="tel:+254711278366">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
               </a>
@@ -83,7 +83,7 @@ const Navbar = () => {
               ))}
               <div className="flex flex-col space-y-2 pt-4">
                 <Button variant="outline" size="sm" asChild>
-                  <a href="tel:+254712345678">
+                  <a href="tel:+254711278366">
                     <Phone className="w-4 h-4 mr-2" />
                     Call Now
                   </a>
