@@ -53,6 +53,28 @@ const TourDetails = () => {
     link.setAttribute("href", window.location.href);
   }, [tour]);
 
+  const normalized = tour?.location?.toLowerCase() || "";
+  const slidesByLocation: Record<string, { src: string; title: string; caption: string }[]> = {
+    "maasai mara": [
+      { src: tour?.image || masaiHero, title: tour?.title || "Maasai Mara", caption: "Rolling savannahs and abundant wildlife encounters." },
+      { src: "https://source.unsplash.com/1200x800/?maasai,mara,safari", title: "Game Drives", caption: "Sunrise and sunset drives across the Mara plains." },
+      { src: "https://source.unsplash.com/1200x800/?africa,river,crossing", title: "River Views", caption: "Scenic riverbanks where wildlife gathers." },
+    ],
+    "amboseli": [
+      { src: tour?.image || amboseliImg, title: tour?.title || "Amboseli", caption: "Elephants roaming beneath Mount Kilimanjaro." },
+      { src: "https://source.unsplash.com/1200x800/?kMy,kilimanjaro,amboseli", title: "Kilimanjaro Vistas", caption: "Clear days reveal Africa's highest peak." },
+      { src: "https://source.unsplash.com/1200x800/?savannah,elephants,amboseli", title: "Elephant Herds", caption: "Iconic sightings across open plains." },
+    ],
+    "diani beach": [
+      { src: tour?.image || dianiImg, title: tour?.title || "Diani Beach", caption: "Pristine white sands and turquoise waters." },
+      { src: "https://source.unsplash.com/1200x800/?diani,beach,kenya", title: "Beachfront", caption: "Palm-lined shores perfect for relaxation." },
+      { src: "https://source.unsplash.com/1200x800/?coral,reef,kenya", title: "Reef Snorkeling", caption: "Colorful reefs and marine life." },
+    ],
+  };
+  const slides = slidesByLocation[normalized] || [
+    { src: tour?.image || masaiHero, title: tour?.title || "Destination highlight", caption: "Signature view from this destination." },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -89,23 +111,7 @@ const TourDetails = () => {
                 <h2 className="text-2xl font-semibold mb-4">Destination Highlights</h2>
                 <Carousel opts={{ loop: true }}>
                   <CarouselContent>
-                    {[
-                      {
-                        src: tour.image || masaiHero,
-                        title: tour.title,
-                        caption: "Signature view from this destination — a perfect start to your adventure.",
-                      },
-                      {
-                        src: amboseliImg,
-                        title: "Wildlife Plains",
-                        caption: "Open savannahs teeming with wildlife and dramatic horizons.",
-                      },
-                      {
-                        src: dianiImg,
-                        title: "Coastal Escape",
-                        caption: "Pristine beaches and turquoise waters ideal for relaxation.",
-                      },
-                    ].map((slide, i) => (
+                    {slides.map((slide, i) => (
                       <CarouselItem key={i} className="">
                         <div className="relative overflow-hidden rounded-md">
                           <img

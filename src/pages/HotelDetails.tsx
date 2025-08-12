@@ -99,6 +99,34 @@ const HotelDetails = () => {
       { name: "Coffee Lounge", type: "Café & pastries", hours: "7:00 AM - 9:00 PM", image: venue3 },
     ],
   };
+  type Room = { name: string; beds: string; size: string; price: string; desc: string; image: string };
+  const roomsByHotel: Record<number, Room[]> = {
+    1: [
+      { name: "Deluxe Room", beds: "1 King Bed", size: "35m²", price: hotel?.price || "$180", desc: "Elegant room with savannah-inspired decor and private veranda.", image: "https://source.unsplash.com/1200x800/?safari,lodge,room" },
+      { name: "Family Suite", beds: "2 Queen Beds", size: "55m²", price: hotel?.price || "$180", desc: "Spacious suite ideal for families with separate lounge.", image: "https://source.unsplash.com/1200x800/?safari,family,room" },
+      { name: "Panorama Suite", beds: "1 King Bed", size: "45m²", price: hotel?.price || "$180", desc: "Suite with sweeping plains views from the deck.", image: "https://source.unsplash.com/1200x800/?savannah,lodge,view" },
+      { name: "Garden Cottage", beds: "1 King + Sofa Bed", size: "60m²", price: hotel?.price || "$180", desc: "Standalone cottage nestled among acacia trees.", image: "https://source.unsplash.com/1200x800/?cottage,africa,lodge" },
+    ],
+    2: [
+      { name: "Deluxe Room", beds: "1 King Bed", size: "35m²", price: hotel?.price || "$145", desc: "Modern room with views towards Kilimanjaro.", image: "https://source.unsplash.com/1200x800/?mountain,lodge,room" },
+      { name: "Family Suite", beds: "2 Queen Beds", size: "55m²", price: hotel?.price || "$145", desc: "Two-room suite with a cozy lounge area.", image: "https://source.unsplash.com/1200x800/?resort,family,room" },
+      { name: "Summit Suite", beds: "1 King Bed", size: "45m²", price: hotel?.price || "$145", desc: "Premium suite with balcony and mountain vistas.", image: "https://source.unsplash.com/1200x800/?hotel,balcony,room" },
+      { name: "Garden Cottage", beds: "1 King + Sofa Bed", size: "60m²", price: hotel?.price || "$145", desc: "Cottage surrounded by tranquil gardens.", image: "https://source.unsplash.com/1200x800/?garden,cottage,room" },
+    ],
+    3: [
+      { name: "Deluxe Room", beds: "1 King Bed", size: "35m²", price: hotel?.price || "$200", desc: "Beach-chic room steps from the sand.", image: "https://source.unsplash.com/1200x800/?beach,resort,room" },
+      { name: "Family Suite", beds: "2 Queen Beds", size: "55m²", price: hotel?.price || "$200", desc: "Generous suite for families with extra seating.", image: "https://source.unsplash.com/1200x800/?family,beach,room" },
+      { name: "Ocean View Suite", beds: "1 King Bed", size: "45m²", price: hotel?.price || "$200", desc: "Suite with panoramic ocean views and balcony.", image: "https://source.unsplash.com/1200x800/?ocean,view,hotel,room" },
+      { name: "Garden Cottage", beds: "1 King + Sofa Bed", size: "60m²", price: hotel?.price || "$200", desc: "Tropical garden cottage for extra privacy.", image: "https://source.unsplash.com/1200x800/?tropical,garden,room" },
+    ],
+  };
+
+  const rooms = roomsByHotel[hotel?.id ?? -1] || [
+    { name: "Deluxe Room", beds: "1 King Bed", size: "35m²", price: hotel?.price || "", desc: "Spacious room with city or garden views, ideal for couples and solo travelers.", image: hotel?.image || "" },
+    { name: "Family Suite", beds: "2 Queen Beds", size: "55m²", price: hotel?.price || "", desc: "A two-room suite perfect for families, with a cozy lounge area.", image: hotel?.image || "" },
+    { name: "Ocean View Suite", beds: "1 King Bed", size: "45m²", price: hotel?.price || "", desc: "Premium suite featuring panoramic views and a private balcony.", image: hotel?.image || "" },
+    { name: "Garden Cottage", beds: "1 King + Sofa Bed", size: "60m²", price: hotel?.price || "", desc: "Standalone cottage surrounded by lush greenery for extra privacy.", image: hotel?.image || "" },
+  ];
 
   const dining = diningByHotel[hotel?.id ?? -1] || defaultDishes;
   const venues = venuesByHotel[hotel?.id ?? -1] || defaultVenues;
@@ -215,40 +243,7 @@ const HotelDetails = () => {
 
                   <TabsContent value="rooms">
                     <div className="grid gap-6 sm:grid-cols-2">
-                      {[
-                        {
-                          name: "Deluxe Room",
-                          beds: "1 King Bed",
-                          size: "35m²",
-                          price: hotel.price,
-                          desc: "Spacious room with city or garden views, ideal for couples and solo travelers.",
-                          image: hotel.image,
-                        },
-                        {
-                          name: "Family Suite",
-                          beds: "2 Queen Beds",
-                          size: "55m²",
-                          price: hotel.price,
-                          desc: "A two-room suite perfect for families, with a cozy lounge area.",
-                          image: hotel.image,
-                        },
-                        {
-                          name: "Ocean View Suite",
-                          beds: "1 King Bed",
-                          size: "45m²",
-                          price: hotel.price,
-                          desc: "Premium suite featuring panoramic views and a private balcony.",
-                          image: hotel.image,
-                        },
-                        {
-                          name: "Garden Cottage",
-                          beds: "1 King + Sofa Bed",
-                          size: "60m²",
-                          price: hotel.price,
-                          desc: "Standalone cottage surrounded by lush greenery for extra privacy.",
-                          image: hotel.image,
-                        },
-                      ].map((room, i) => (
+                      {rooms.map((room, i) => (
                         <Card key={i} className="overflow-hidden">
                           <img
                             src={room.image}
