@@ -79,42 +79,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div>
-                      <Label htmlFor="country" className="text-sm font-medium">Country/Region *</Label>
-                      <Select>
-                        <SelectTrigger className="mt-1">
-                          <SelectValue placeholder="Select country" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="kenya">Kenya</SelectItem>
-                          <SelectItem value="uganda">Uganda</SelectItem>
-                          <SelectItem value="tanzania">Tanzania</SelectItem>
-                          <SelectItem value="usa">United States</SelectItem>
-                          <SelectItem value="uk">United Kingdom</SelectItem>
-                          <SelectItem value="germany">Germany</SelectItem>
-                          <SelectItem value="france">France</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label htmlFor="city" className="text-sm font-medium">City</Label>
-                      <Input 
-                        id="city"
-                        placeholder="Enter your city"
-                        className="mt-1"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="zip" className="text-sm font-medium">ZIP/Postal Code</Label>
-                      <Input 
-                        id="zip"
-                        placeholder="Enter ZIP code"
-                        className="mt-1"
-                      />
-                    </div>
-                  </div>
                 </div>
 
                 {/* What are your Travel Plans Section */}
