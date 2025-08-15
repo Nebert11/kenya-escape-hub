@@ -14,7 +14,6 @@ const Tours = () => {
       description: "Experience the Great Migration and witness the Big Five in Kenya's most famous game reserve.",
       duration: "3 Days",
       groupSize: "2-8 People",
-      price: "$450",
       rating: 4.9,
       image: "/src/assets/masai-mara-hero.jpg",
       location: "Maasai Mara",
@@ -26,7 +25,6 @@ const Tours = () => {
       description: "Get up close with elephants against the backdrop of Mount Kilimanjaro.",
       duration: "2 Days",
       groupSize: "2-6 People",
-      price: "$320",
       rating: 4.8,
       image: "/src/assets/amboseli-kilimanjaro.jpg",
       location: "Amboseli",
@@ -38,11 +36,37 @@ const Tours = () => {
       description: "Relax on pristine white sand beaches and enjoy water sports on the Indian Ocean.",
       duration: "4 Days",
       groupSize: "2-10 People",
-      price: "$280",
       rating: 4.7,
       image: "/src/assets/diani-beach.jpg",
       location: "Diani",
       category: "Beach"
+    }
+  ];
+
+  const tourPackages = [
+    {
+      id: 1,
+      name: "Mashujaa Day Special",
+      description: "3-day Maasai Mara adventure celebrating Kenya's heroes",
+      price: "$450",
+      duration: "3 Days",
+      includes: ["Accommodation", "Game Drives", "All Meals"]
+    },
+    {
+      id: 2,
+      name: "Heritage Explorer",
+      description: "Cultural and wildlife combination package",
+      price: "$680",
+      duration: "5 Days", 
+      includes: ["2 Destinations", "Cultural Tours", "Safari Drives"]
+    },
+    {
+      id: 3,
+      name: "Beach & Safari Combo",
+      description: "Best of both worlds - wildlife and coast",
+      price: "$850",
+      duration: "7 Days",
+      includes: ["Maasai Mara", "Diani Beach", "All Transfers"]
     }
   ];
 
@@ -121,11 +145,62 @@ const Tours = () => {
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-primary">{tour.price}</span>
                       <Button variant="safari" asChild>
                         <Link to={`/tours/${tour.id}`} state={{ item: tour }}>
-                          Book Now
+                          View Details
                         </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tour Packages Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Tour Packages</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Special curated packages for unforgettable Kenya experiences
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {tourPackages.map((pkg) => (
+              <Card key={pkg.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="text-xl">{pkg.name}</CardTitle>
+                  <CardDescription>{pkg.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Clock className="w-4 h-4" />
+                        {pkg.duration}
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <p className="text-sm font-medium">Package Includes:</p>
+                      <ul className="space-y-1">
+                        {pkg.includes.map((item, index) => (
+                          <li key={index} className="text-xs text-muted-foreground flex items-center gap-2">
+                            <Star className="w-3 h-3" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="flex items-center justify-between pt-4 border-t">
+                      <span className="text-2xl font-bold text-primary">{pkg.price}</span>
+                      <Button variant="safari">
+                        Book Package
                       </Button>
                     </div>
                   </div>

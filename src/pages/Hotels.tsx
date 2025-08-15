@@ -14,7 +14,6 @@ const Hotels = () => {
       description: "Luxury tented camp overlooking the Mara River with game viewing from your deck.",
       location: "Maasai Mara",
       rating: 4.8,
-      price: "$180",
       image: "/src/assets/masai-mara-hero.jpg",
       amenities: ["Free WiFi", "Game Drives", "Restaurant", "Bar"],
       category: "Safari Lodge"
@@ -25,7 +24,6 @@ const Hotels = () => {
       description: "Stunning views of Mount Kilimanjaro with modern amenities and wildlife viewing.",
       location: "Amboseli",
       rating: 4.7,
-      price: "$145",
       image: "/src/assets/amboseli-kilimanjaro.jpg",
       amenities: ["Pool", "Spa", "Restaurant", "Free Parking"],
       category: "Resort"
@@ -36,10 +34,19 @@ const Hotels = () => {
       description: "Beachfront paradise with pristine white sand beaches and crystal clear waters.",
       location: "Diani Beach",
       rating: 4.9,
-      price: "$200",
       image: "/src/assets/diani-beach.jpg",
       amenities: ["Beach Access", "Water Sports", "Pool", "Restaurant"],
       category: "Beach Resort"
+    },
+    {
+      id: 4,
+      name: "Buraha Zenoni Hotel & Resort",
+      description: "Idyllic oasis of tranquility in Nakuru, conveniently located near Lake Elementaita with modern amenities.",
+      location: "Nakuru",
+      rating: 4.6,
+      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      amenities: ["Free WiFi", "Restaurant", "Bar", "24-hour Front Desk", "Airport Transfers", "Kids Club"],
+      category: "City Hotel"
     }
   ];
 
@@ -137,13 +144,9 @@ const Hotels = () => {
                     </div>
                     
                     <div className="flex items-center justify-between pt-2">
-                      <div>
-                        <span className="text-2xl font-bold text-primary">{hotel.price}</span>
-                        <span className="text-sm text-muted-foreground">/night</span>
-                      </div>
                       <Button variant="safari" asChild>
                         <Link to={`/hotels/${hotel.id}`} state={{ item: hotel }}>
-                          Book Now
+                          View Details
                         </Link>
                       </Button>
                     </div>
