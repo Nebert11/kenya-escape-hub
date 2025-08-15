@@ -4,279 +4,316 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: Phone,
-      title: "Call Us",
-      details: ["+254711278366"],
-      description: "Available 24/7 for emergencies"
-    },
-    {
-      icon: Mail,
-      title: "Email Us",
-      details: ["info@mambosafaris.com", "bookings@mambosafaris.com"],
-      description: "We respond within 2 hours"
-    },
-    {
-      icon: MapPin,
-      title: "Visit Us",
-      details: ["Nairobi CBD", "Kimathi Street, 3rd Floor"],
-      description: "Mon-Fri: 8AM-6PM, Sat: 9AM-4PM"
-    },
-    {
-      icon: MessageCircle,
-      title: "WhatsApp",
-      details: ["+254711278366"],
-      description: "Quick responses for urgent inquiries"
-    }
-  ];
-
-  const officeHours = [
-    { day: "Monday - Friday", hours: "8:00 AM - 6:00 PM" },
-    { day: "Saturday", hours: "9:00 AM - 4:00 PM" },
-    { day: "Sunday", hours: "Emergency calls only" }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-safari">
+      {/* Hero Section with Enquire Now */}
+      <section className="relative py-20 bg-gradient-to-r from-orange-500 to-orange-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Get in Touch
+            Enquire Now
           </h1>
           <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Ready to plan your Kenya adventure? We're here to help make your dream trip a reality.
+            Plan your perfect Kenya adventure with our personalized service
           </p>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {contactInfo.map((info, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4">
-                    <info.icon className="w-8 h-8 text-primary" />
+      {/* Main Form Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="shadow-xl">
+            <CardContent className="p-8">
+              <form className="space-y-8">
+                
+                {/* Tell us about yourself Section */}
+                <div className="space-y-6">
+                  <div className="border-b border-orange-200 pb-4">
+                    <h2 className="text-2xl font-bold text-orange-600 mb-2">Tell us about yourself</h2>
                   </div>
-                  <CardTitle className="text-lg">{info.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-1 mb-3">
-                    {info.details.map((detail, idx) => (
-                      <p key={idx} className="font-medium text-foreground">{detail}</p>
-                    ))}
-                  </div>
-                  <CardDescription>{info.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form & Info */}
-      <section className="py-16 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-2xl">Send us a Message</CardTitle>
-                <CardDescription>
-                  Fill out the form below and we'll get back to you within 2 hours during business hours.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium mb-2">First Name</label>
-                      <Input placeholder="Your first name" />
+                      <Label htmlFor="firstName" className="text-sm font-medium">First Name *</Label>
+                      <Input 
+                        id="firstName"
+                        placeholder="Enter your first name"
+                        className="mt-1"
+                      />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">Last Name</label>
-                      <Input placeholder="Your last name" />
+                      <Label htmlFor="lastName" className="text-sm font-medium">Last Name *</Label>
+                      <Input 
+                        id="lastName"
+                        placeholder="Enter your last name"
+                        className="mt-1"
+                      />
                     </div>
                   </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Email</label>
-                    <Input type="email" placeholder="your.email@example.com" />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Phone Number</label>
-                    <Input type="tel" placeholder="+254 700 000 000" />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Subject</label>
-                    <Input placeholder="What is this regarding?" />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Message</label>
-                    <Textarea 
-                      placeholder="Tell us about your travel plans, questions, or how we can help you..."
-                      rows={6}
-                    />
-                  </div>
-                  
-                  <Button variant="safari" className="w-full">Send Message</Button>
-                </form>
-              </CardContent>
-            </Card>
 
-            {/* Additional Info */}
-            <div className="space-y-8">
-              {/* Office Hours */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Clock className="w-5 h-5 text-primary" />
-                    Office Hours
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {officeHours.map((schedule, index) => (
-                      <div key={index} className="flex justify-between items-center">
-                        <span className="font-medium">{schedule.day}</span>
-                        <span className="text-muted-foreground">{schedule.hours}</span>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="email" className="text-sm font-medium">Email Address *</Label>
+                      <Input 
+                        id="email"
+                        type="email"
+                        placeholder="your.email@example.com"
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="phone" className="text-sm font-medium">Phone Number *</Label>
+                      <Input 
+                        id="phone"
+                        type="tel"
+                        placeholder="+254 700 000 000"
+                        className="mt-1"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                      <Label htmlFor="country" className="text-sm font-medium">Country/Region *</Label>
+                      <Select>
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Select country" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="kenya">Kenya</SelectItem>
+                          <SelectItem value="uganda">Uganda</SelectItem>
+                          <SelectItem value="tanzania">Tanzania</SelectItem>
+                          <SelectItem value="usa">United States</SelectItem>
+                          <SelectItem value="uk">United Kingdom</SelectItem>
+                          <SelectItem value="germany">Germany</SelectItem>
+                          <SelectItem value="france">France</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label htmlFor="city" className="text-sm font-medium">City</Label>
+                      <Input 
+                        id="city"
+                        placeholder="Enter your city"
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="zip" className="text-sm font-medium">ZIP/Postal Code</Label>
+                      <Input 
+                        id="zip"
+                        placeholder="Enter ZIP code"
+                        className="mt-1"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* What are your Travel Plans Section */}
+                <div className="space-y-6">
+                  <div className="border-b border-orange-200 pb-4">
+                    <h2 className="text-2xl font-bold text-orange-600 mb-2">What are your Travel Plans</h2>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="travelType" className="text-sm font-medium">Type of Safari *</Label>
+                      <Select>
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Select safari type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="wildlife">Wildlife Safari</SelectItem>
+                          <SelectItem value="cultural">Cultural Safari</SelectItem>
+                          <SelectItem value="beach">Beach Safari</SelectItem>
+                          <SelectItem value="adventure">Adventure Safari</SelectItem>
+                          <SelectItem value="luxury">Luxury Safari</SelectItem>
+                          <SelectItem value="budget">Budget Safari</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label htmlFor="duration" className="text-sm font-medium">Duration *</Label>
+                      <Select>
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Select duration" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1-3">1-3 Days</SelectItem>
+                          <SelectItem value="4-7">4-7 Days</SelectItem>
+                          <SelectItem value="8-14">8-14 Days</SelectItem>
+                          <SelectItem value="15+">15+ Days</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="checkIn" className="text-sm font-medium">Preferred Start Date</Label>
+                      <Input 
+                        id="checkIn"
+                        type="date"
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="guests" className="text-sm font-medium">Number of Guests *</Label>
+                      <Select>
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Select guests" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1">1 Guest</SelectItem>
+                          <SelectItem value="2">2 Guests</SelectItem>
+                          <SelectItem value="3-5">3-5 Guests</SelectItem>
+                          <SelectItem value="6-10">6-10 Guests</SelectItem>
+                          <SelectItem value="10+">10+ Guests</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="budget" className="text-sm font-medium">Budget Range (USD) *</Label>
+                      <Select>
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Select budget" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="1000-2500">$1,000 - $2,500</SelectItem>
+                          <SelectItem value="2500-5000">$2,500 - $5,000</SelectItem>
+                          <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
+                          <SelectItem value="10000+">$10,000+</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label htmlFor="accommodation" className="text-sm font-medium">Accommodation Preference</Label>
+                      <Select>
+                        <SelectTrigger className="mt-1">
+                          <SelectValue placeholder="Select accommodation" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="luxury">Luxury Lodge</SelectItem>
+                          <SelectItem value="mid-range">Mid-range Hotel</SelectItem>
+                          <SelectItem value="budget">Budget Accommodation</SelectItem>
+                          <SelectItem value="camping">Camping</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Add a bit more detail Section */}
+                <div className="space-y-6">
+                  <div className="border-b border-orange-200 pb-4">
+                    <h2 className="text-2xl font-bold text-orange-600 mb-2">Add a bit more detail</h2>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <Label htmlFor="destinations" className="text-sm font-medium">Preferred Destinations (Select all that apply)</Label>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
+                        {['Maasai Mara', 'Amboseli', 'Tsavo', 'Samburu', 'Lake Nakuru', 'Aberdares', 'Mount Kenya', 'Diani Beach', 'Malindi', 'Lamu'].map((destination) => (
+                          <div key={destination} className="flex items-center space-x-2">
+                            <Checkbox id={destination} />
+                            <Label htmlFor={destination} className="text-sm">{destination}</Label>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                    </div>
 
-              {/* Emergency Contact */}
-              <Card className="bg-orange-50 border-orange-200">
-                <CardHeader>
-                  <CardTitle className="text-orange-800">Emergency Contact</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-orange-700 mb-3">
-                    If you're currently on a tour with us and need immediate assistance:
-                  </p>
-                  <div className="space-y-2">
-                    <p className="font-bold text-orange-800">24/7 Emergency Hotline:</p>
-                    <p className="text-lg font-bold text-orange-800">+254 700 SAFARI (700-723274)</p>
-                  </div>
-                </CardContent>
-              </Card>
+                    <div>
+                      <Label htmlFor="interests" className="text-sm font-medium">Special Interests</Label>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
+                        {['Big Five', 'Bird Watching', 'Photography', 'Cultural Experiences', 'Hot Air Balloon', 'Walking Safaris', 'Night Game Drives', 'Community Visits'].map((interest) => (
+                          <div key={interest} className="flex items-center space-x-2">
+                            <Checkbox id={interest} />
+                            <Label htmlFor={interest} className="text-sm">{interest}</Label>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
 
-              {/* Quick Response */}
-              <Card className="bg-primary/5 border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-primary">Need a Quick Response?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    For faster responses, reach out to us on WhatsApp or call us directly.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Button variant="outline" className="flex-1" asChild>
-                      <a href="https://wa.me/254711278366?text=Hello,%20I%20would%20like%20to%20inquire%20about%20your%20tour%20packages" target="_blank" rel="noopener noreferrer">
-                        <MessageCircle className="w-4 h-4 mr-2" />
-                        WhatsApp Us
-                      </a>
-                    </Button>
-                    <Button variant="safari" className="flex-1" asChild>
-                      <a href="tel:+254711278366">
-                        <Phone className="w-4 h-4 mr-2" />
-                        Call Now
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                    <div>
+                      <Label htmlFor="additionalInfo" className="text-sm font-medium">Additional Information</Label>
+                      <Textarea 
+                        id="additionalInfo"
+                        placeholder="Tell us anything else that would help us plan your perfect safari..."
+                        rows={4}
+                        className="mt-1"
+                      />
+                    </div>
 
-              {/* Location */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <MapPin className="w-5 h-5 text-primary" />
-                    Visit Our Office
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <p className="font-medium">Mambo Safaris</p>
-                    <p className="text-muted-foreground">Kimathi Street, 3rd Floor</p>
-                    <p className="text-muted-foreground">Nairobi CBD, Kenya</p>
-                    <p className="text-muted-foreground">P.O. Box 12345-00100</p>
+                    <div className="flex items-center space-x-2">
+                      <Checkbox id="newsletter" />
+                      <Label htmlFor="newsletter" className="text-sm">
+                        Subscribe to our newsletter for travel tips and special offers
+                      </Label>
+                    </div>
                   </div>
-                  <Button variant="outline" className="w-full mt-4">
-                    <MapPin className="w-4 h-4 mr-2" />
-                    Get Directions
+                </div>
+
+                <div className="flex justify-center pt-6">
+                  <Button variant="safari" size="lg" className="px-12 py-3 text-lg">
+                    Submit Enquiry
                   </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16">
+      {/* Quick Contact Section */}
+      <section className="py-12 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <Badge className="mb-4">FAQ</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-              Frequently Asked Questions
-            </h2>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold mb-2">Need Immediate Assistance?</h2>
+            <p className="text-muted-foreground">Our team is ready to help you plan your adventure</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">How far in advance should I book?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  We recommend booking at least 2-3 months in advance, especially for peak season (July-September and December-January).
-                </CardDescription>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Card className="text-center">
+              <CardContent className="p-6">
+                <Phone className="w-8 h-8 text-orange-500 mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Call Us</h3>
+                <p className="text-sm text-muted-foreground mb-3">Available 24/7</p>
+                <Button variant="outline" asChild>
+                  <a href="tel:+254711278366">+254 711 278 366</a>
+                </Button>
               </CardContent>
             </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">What's included in tour packages?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Most packages include accommodation, meals, transport, park fees, and guide services. Specific inclusions vary by package.
-                </CardDescription>
+
+            <Card className="text-center">
+              <CardContent className="p-6">
+                <MessageCircle className="w-8 h-8 text-green-500 mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">WhatsApp</h3>
+                <p className="text-sm text-muted-foreground mb-3">Quick responses</p>
+                <Button variant="outline" asChild>
+                  <a href="https://wa.me/254711278366" target="_blank" rel="noopener noreferrer">Chat Now</a>
+                </Button>
               </CardContent>
             </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Do you offer custom itineraries?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Yes! We specialize in creating personalized itineraries based on your interests, budget, and time constraints.
-                </CardDescription>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">What's your cancellation policy?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>
-                  Cancellations 30+ days before: full refund. 15-29 days: 50% refund. Less than 15 days: no refund, subject to force majeure.
-                </CardDescription>
+
+            <Card className="text-center">
+              <CardContent className="p-6">
+                <Mail className="w-8 h-8 text-blue-500 mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Email</h3>
+                <p className="text-sm text-muted-foreground mb-3">We respond within 2 hours</p>
+                <Button variant="outline" asChild>
+                  <a href="mailto:info@mambosafaris.com">info@mambosafaris.com</a>
+                </Button>
               </CardContent>
             </Card>
           </div>
