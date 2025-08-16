@@ -6,8 +6,8 @@ const Footer = () => {
   const footerLinks = {
     "Quick Links": [
       { name: "About Us", href: "/about" },
-      { name: "Tour Packages", href: "/tours" },
       { name: "Hotel Booking", href: "/hotels" },
+      { name: "Holiday Packages", href: "/holiday-packages" },
       { name: "Blog", href: "/blog" },
     ],
     "Destinations": [
@@ -38,7 +38,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <MapPin className="h-8 w-8 text-safari-gold" />
-              <span className="text-2xl font-bold">Mambo Safaris</span>
+              <span className="text-2xl font-bold">Travel Buddies</span>
             </div>
             <p className="text-primary-foreground/80 mb-6 max-w-md">
               Your trusted partner for unforgettable Kenyan adventures. Experience the best of wildlife, 
@@ -53,7 +53,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 mr-3 text-safari-gold" />
-                <span>info@mambosafaris.com</span>
+                <span>travelbuddies@gmail.com</span>
               </div>
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 mt-1 text-safari-gold" />
@@ -117,7 +117,7 @@ const Footer = () => {
             ))}
           </div>
           <p className="text-primary-foreground/60">
-            © 2024 Mambo Safaris. All rights reserved.
+            © 2024 Travel Buddies. All rights reserved.
           </p>
         </div>
       </div>

@@ -23,7 +23,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center space-x-2">
             <MapPin className="h-8 w-8 text-primary" />
             <span className="text-2xl font-bold bg-gradient-safari bg-clip-text text-transparent">
-              Mambo Safaris
+              Travel Buddies
             </span>
           </Link>
 

@@ -41,7 +41,7 @@ const About = () => {
       <section className="relative py-20 bg-gradient-safari">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            About Mambo Safaris
+            About Travel Buddies
           </h1>
           <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
             Your trusted partner for authentic Kenyan adventures and unforgettable experiences.
@@ -60,7 +60,7 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Founded in 2014, Mambo Safaris was born from a deep love for Kenya's incredible landscapes, 
+                  Founded in 2014, Travel Buddies was born from a deep love for Kenya's incredible landscapes, 
                   diverse wildlife, and rich cultural heritage. Our mission is to share the magic of Kenya with 
                   travelers from around the world while supporting local communities.
                 </p>

@@ -196,9 +196,9 @@ const HolidayPackages = () => {
                         <Link to="/contact">Book Your Adventure!</Link>
                       </Button>
                       <Button variant="outline" asChild>
-                        <a href="tel:+254743327540">
+                        <a href="tel:+254711278366">
                           <Phone className="w-4 h-4 mr-2" />
-                          +254 743 327 540
+                          +254 711 278 366
                         </a>
                       </Button>
                     </div>
@@ -224,7 +224,6 @@ const HolidayPackages = () => {
             <div className="text-center">
               <Phone className="w-8 h-8 text-white mx-auto mb-2" />
               <p className="text-white font-semibold">Call Us</p>
-              <p className="text-white/90">+254 743 327 540</p>
               <p className="text-white/90">+254 711 278 366</p>
             </div>
             <div className="text-center">
@@ -244,7 +243,7 @@ const HolidayPackages = () => {
               <Link to="/contact">Get Custom Quote</Link>
             </Button>
             <Button variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-blue-600" asChild>
-              <a href="https://wa.me/254743327540" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/254711278366" target="_blank" rel="noopener noreferrer">
                 WhatsApp Us
               </a>
             </Button>
