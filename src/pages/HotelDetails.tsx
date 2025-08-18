@@ -238,7 +238,7 @@ const HotelDetails = () => {
                     <TabsTrigger value="rooms">Rooms</TabsTrigger>
                     <TabsTrigger value="dining">Dishes</TabsTrigger>
                     {venues.length > 0 && (
-                      <TabsTrigger value="venues">Restaurants &amp; Bars</TabsTrigger>
+                    <TabsTrigger value="venues">Restaurants &amp; Bars</TabsTrigger>
                     )}
                   </TabsList>
 
@@ -320,29 +320,29 @@ const HotelDetails = () => {
                   </TabsContent>
 
                   {venues.length > 0 && (
-                    <TabsContent value="venues">
-                      <div className="grid gap-6 sm:grid-cols-2">
-                        {venues.map((v, i) => (
-                          <Card key={i} className="overflow-hidden">
-                            <img
-                              src={v.image}
-                              alt={`${v.name} - ${v.type}`}
-                              className="w-full h-40 object-cover"
-                              loading="lazy"
-                            />
-                            <CardHeader>
-                              <CardTitle className="text-base">{v.name}</CardTitle>
-                              <CardDescription>{v.type} • {v.hours}</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                              <p className="text-sm text-muted-foreground">
-                                Enjoy signature specialties, friendly service, and a relaxed ambiance.
-                              </p>
-                            </CardContent>
-                          </Card>
-                        ))}
-                      </div>
-                    </TabsContent>
+                  <TabsContent value="venues">
+                    <div className="grid gap-6 sm:grid-cols-2">
+                      {venues.map((v, i) => (
+                        <Card key={i} className="overflow-hidden">
+                          <img
+                            src={v.image}
+                            alt={`${v.name} - ${v.type}`}
+                            className="w-full h-40 object-cover"
+                            loading="lazy"
+                          />
+                          <CardHeader>
+                            <CardTitle className="text-base">{v.name}</CardTitle>
+                            <CardDescription>{v.type} • {v.hours}</CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-sm text-muted-foreground">
+                              Enjoy signature specialties, friendly service, and a relaxed ambiance.
+                            </p>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
                   )}
                 </Tabs>
 
