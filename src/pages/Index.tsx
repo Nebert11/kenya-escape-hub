@@ -34,7 +34,7 @@ const Index = () => {
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="relative">
                   <img 
-                    src="/lovable-uploads/4d1c0734-00b8-4c17-b196-8f7073efb5d0.png" 
+                    src="/src/assets/diani-beach.jpg" 
                     alt="Mombasa Holiday Packages"
                     className="w-full h-64 md:h-80 object-cover"
                   />

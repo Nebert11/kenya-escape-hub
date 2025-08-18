@@ -276,7 +276,7 @@ const Contact = () => {
                 <h3 className="font-semibold mb-2">Email</h3>
                 <p className="text-sm text-muted-foreground mb-3">We respond within 2 hours</p>
                 <Button variant="outline" asChild>
-                  <a href="mailto:info@mambosafaris.com">info@mambosafaris.com</a>
+                  <a href="mailto:travelbuddies@gmail.com">travelbuddies@gmail.com</a>
                 </Button>
               </CardContent>
             </Card>

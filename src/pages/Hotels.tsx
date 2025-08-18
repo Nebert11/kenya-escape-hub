@@ -6,35 +6,39 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Star, Wifi, Car, Coffee, Waves } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import buraha from "@/assets/buraha-zenoni.jpg"
+import diani from "@/assets/diani-sea.jpg"
+import kilimanjaro from "@/assets/kilimanjaro-resort.webp"
+
 const Hotels = () => {
   const hotels = [
-    {
-      id: 1,
-      name: "Safari Lodge Maasai Mara",
-      description: "Luxury tented camp overlooking the Mara River with game viewing from your deck.",
-      location: "Maasai Mara",
-      rating: 4.8,
-      image: "/src/assets/masai-mara-hero.jpg",
-      amenities: ["Free WiFi", "Game Drives", "Restaurant", "Bar"],
-      category: "Safari Lodge"
-    },
+    // {
+    //   id: 1,
+    //   name: "Safari Lodge Maasai Mara",
+    //   description: "Luxury tented camp overlooking the Mara River with game viewing from your deck.",
+    //   location: "Maasai Mara",
+    //   rating: 4.8,
+    //   image: "/src/assets/masai-mara-hero.jpg",
+    //   amenities: ["Free WiFi", "Game Drives", "Restaurant", "Bar"],
+    //   category: "Safari Lodge"
+    // },
     {
       id: 2,
-      name: "Kilimanjaro View Resort",
+      name: "Kilimanjaro Mountain Resort",
       description: "Stunning views of Mount Kilimanjaro with modern amenities and wildlife viewing.",
       location: "Amboseli",
       rating: 4.7,
-      image: "/src/assets/amboseli-kilimanjaro.jpg",
+      image: kilimanjaro,
       amenities: ["Pool", "Spa", "Restaurant", "Free Parking"],
       category: "Resort"
     },
     {
       id: 3,
-      name: "Diani Beach Resort",
+      name: "Diani Sea Resort",
       description: "Beachfront paradise with pristine white sand beaches and crystal clear waters.",
       location: "Diani Beach",
       rating: 4.9,
-      image: "/src/assets/diani-beach.jpg",
+      image: diani,
       amenities: ["Beach Access", "Water Sports", "Pool", "Restaurant"],
       category: "Beach Resort"
     },
@@ -44,7 +48,7 @@ const Hotels = () => {
       description: "Idyllic oasis of tranquility in Nakuru, conveniently located near Lake Elementaita with modern amenities.",
       location: "Nakuru",
       rating: 4.6,
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: buraha,
       amenities: ["Free WiFi", "Restaurant", "Bar", "24-hour Front Desk", "Airport Transfers", "Kids Club"],
       category: "City Hotel"
     }

@@ -48,7 +48,7 @@ const Hero = () => {
               <Link to="/hotels">
                 View Hotels
               </Link>
-            </Button>
+            </Button> 
           </div>
 
           {/* Stats */}

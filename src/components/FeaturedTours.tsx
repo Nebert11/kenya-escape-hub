@@ -5,6 +5,7 @@ import { Clock, Users, Star, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import amboseliKilimanjaro from "@/assets/amboseli-kilimanjaro.jpg";
 import dianiBeach from "@/assets/diani-beach.jpg";
+import mountKenya from "@/assets/mount-kanya.webp";
 
 const FeaturedTours = () => {
   const tours = [
@@ -36,7 +37,7 @@ const FeaturedTours = () => {
       id: 3,
       title: "Mount Kenya Expedition",
       description: "Challenge yourself with a trek to Africa's second-highest peak through diverse ecosystems.",
-      image: amboseliKilimanjaro,
+      image: mountKenya,
       duration: "6 Days",
       groupSize: "Max 6",
       rating: 4.7,
@@ -109,10 +110,10 @@ const FeaturedTours = () => {
               </CardContent>
 
               <CardFooter className="flex items-center justify-between">
-                <div className="text-2xl font-bold text-primary">
+                {/* <div className="text-2xl font-bold text-primary">
                   {tour.price}
                   <span className="text-sm font-normal text-muted-foreground">/person</span>
-                </div>
+                </div> */}
                 <Button variant="safari" size="sm" asChild>
                   <Link to="/tours">
                     View Details

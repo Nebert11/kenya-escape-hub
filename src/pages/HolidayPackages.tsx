@@ -15,7 +15,7 @@ const HolidayPackages = () => {
       duration: "Full Day",
       location: "Mombasa",
       rating: 4.8,
-      image: "/lovable-uploads/4d1c0734-00b8-4c17-b196-8f7073efb5d0.png",
+      image: "/src/assets/diani-beach.jpg",
       description: "Experience the best of Mombasa in a single day with our comprehensive tour package.",
       highlights: [
         "Old Town exploration",
@@ -40,7 +40,7 @@ const HolidayPackages = () => {
       duration: "4-6 Hours",
       location: "Mombasa",
       rating: 4.6,
-      image: "/lovable-uploads/4d1c0734-00b8-4c17-b196-8f7073efb5d0.png",
+      image: "/src/assets/diani-beach.jpg",
       description: "Discover Mombasa's vibrant nightlife scene with pick-up and drop-off service.",
       highlights: [
         "Pick-up & drop-off service",
@@ -106,7 +106,7 @@ const HolidayPackages = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-xl overflow-hidden shadow-2xl">
             <img 
-              src="/lovable-uploads/4d1c0734-00b8-4c17-b196-8f7073efb5d0.png" 
+              src="/src/assets/diani-beach.jpg" 
               alt="Mombasa Holiday Packages"
               className="w-full h-auto"
             />
@@ -211,7 +211,7 @@ const HolidayPackages = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-500 to-teal-500">
+      {/* <section className="py-16 bg-gradient-to-r from-blue-500 to-teal-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Book Your Adventure?
@@ -249,7 +249,7 @@ const HolidayPackages = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

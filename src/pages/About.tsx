@@ -14,19 +14,19 @@ const About = () => {
 
   const team = [
     {
-      name: "James Kariuki",
+      name: "Yvonne Gatwiri",
       role: "Founder & CEO",
-      description: "Born and raised in Kenya, James has over 15 years of experience in tourism and hospitality.",
+      description: "Born and raised in Kenya, Yvonne has over 5 years of experience in tourism and hospitality. She is a professional safari guide with extensive knowledge of Kenya's wildlife and national parks.",
       image: "/placeholder.svg"
     },
+    // {
+    //   name: "Nebert Ngari",
+    //   role: "Co-Founder",
+    //   description: "",
+    //   image: "/placeholder.svg"
+    // },
     {
-      name: "Sarah Wanjiku",
-      role: "Head of Tours",
-      description: "Professional safari guide with extensive knowledge of Kenya's wildlife and national parks.",
-      image: "/placeholder.svg"
-    },
-    {
-      name: "David Ochieng",
+      name: "Nebert Ngari",
       role: "Customer Experience Manager",
       description: "Ensures every guest has an unforgettable experience during their stay in Kenya.",
       image: "/placeholder.svg"
@@ -171,7 +171,7 @@ const About = () => {
               Meet the People Behind the Magic
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {team.map((member, index) => (
               <Card key={index} className="text-center">
                 <CardHeader>

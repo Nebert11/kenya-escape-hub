@@ -8,12 +8,25 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { MapPin, Star, Wifi, Car, Coffee, Waves, ArrowLeft } from "lucide-react";
 import { Link, useLocation, useParams } from "react-router-dom";
 
-import dish1 from "@/assets/hotel/dishes/dish-1.jpg";
-import dish2 from "@/assets/hotel/dishes/dish-2.jpg";
-import dish3 from "@/assets/hotel/dishes/dish-3.jpg";
-import venue1 from "@/assets/hotel/venues/venue-1.jpg";
-import venue2 from "@/assets/hotel/venues/venue-2.jpg";
-import venue3 from "@/assets/hotel/venues/venue-3.jpg";
+import dish1 from "@/assets/hotel/dishes/dish1.jpg";
+import dish2 from "@/assets/hotel/dishes/dish2.jpg";
+import dish3 from "@/assets/hotel/dishes/dish3.jpg";
+import dish4 from "@/assets/hotel/dishes/dish4.jpg";
+import dish5 from "@/assets/hotel/dishes/dish5.jpg";
+import dish6 from "@/assets/hotel/dishes/dish6.jpg";
+import beach from "@/assets/hotel/venues/beach-bar.jpg";
+import maasai from "@/assets/hotel/venues/maasai-bar.jpg";
+import pool from "@/assets/hotel/venues/pool-bar.jpg";
+
+import deluxe from "@/assets/deluxe-room.webp";
+import family from "@/assets/family-suite.jpg"
+import standard from "@/assets/standard-room.webp"
+import standardPlus from "@/assets/standard-plus.webp"
+
+import comfort from "@/assets/hotel/rooms/comfort-room.jpg"
+import bahari from "@/assets/hotel/rooms/bahari-room.jpg"
+import ocean from "@/assets/hotel/rooms/ocean-suite.jpg"
+import familyRoom from "@/assets/hotel/rooms/family-room.jpg"
 
 interface Hotel {
   id: number;
@@ -48,6 +61,7 @@ const HotelDetails = () => {
   const { id } = useParams();
   const hotel = state?.item;
 
+  //  Dishes
   const defaultDishes = [
     { name: "Swahili Coconut Curry", desc: "Aromatic curry with coastal spices, served with coconut rice.", image: dish1 },
     { name: "Grilled Tilapia", desc: "Fresh catch with lemon-herb butter and seasonal greens.", image: dish2 },
@@ -73,30 +87,38 @@ const HotelDetails = () => {
       { name: "Tropical Ceviche", desc: "Citrus-cured fish with mango and passion fruit.", image: dish3 },
       { name: "Coconut Curry", desc: "Coastal curry with aromatic spices and coconut milk.", image: dish1 },
     ],
+    4: [
+      { name: "Signature Chicken Curry", desc: "Rich and creamy curry with house spices, served with basmati rice.", image: dish4 },
+      { name: "Spicy Beef Sauté", desc: "PTender beef cubes simmered in a rich, spicy tomato sauce, garnished with chopped green onions and a fresh tomato rose.", image: dish2 },
+      { name: "Golden Crusted Chicken Delight", desc: "Crispy battered chicken fillets served with a fresh vegetable salad and a creamy dipping sauce on a bed of cabbage.", image: dish3 },
+      { name: "Village Feast Stew", desc: "A hearty medley of chicken, yams, corn, and plantains stewed in a savory broth, bringing traditional flavors to life.", image: dish1 },
+      { name: "Plantains in Tomato Herb Sauce", desc: "Plantains coated in rich tomato sauce, garnished with herbs and served with a savory dip.", image: dish5 },
+      { name: "Full Breakfast Platter", desc: "A hearty mix of eggs, sausage, bacon, vegetables, and boiled root crops for a filling breakfast.", image: dish6 },
+    ]
   };
 
   const defaultVenues = [
-    { name: "Savannah Restaurant", type: "All-day dining", hours: "6:30 AM - 10:30 PM", image: venue1 },
-    { name: "Kilimanjaro Bar", type: "Cocktail lounge", hours: "4:00 PM - 1:00 AM", image: venue2 },
-    { name: "Coffee Lounge", type: "Café & pastries", hours: "7:00 AM - 9:00 PM", image: venue3 },
-    { name: "Sunset Grill", type: "Poolside BBQ", hours: "12:00 PM - 8:00 PM", image: venue2 },
+    { name: "Savannah Restaurant", type: "All-day dining", hours: "6:30 AM - 10:30 PM", image: beach },
+    { name: "Kilimanjaro Bar", type: "Cocktail lounge", hours: "4:00 PM - 1:00 AM", image: maasai },
+    { name: "Coffee Lounge", type: "Café & pastries", hours: "7:00 AM - 9:00 PM", image: pool },
+    { name: "Sunset Grill", type: "Poolside BBQ", hours: "12:00 PM - 8:00 PM", image: beach },
   ];
 
   const venuesByHotel: Record<number, { name: string; type: string; hours: string; image: string }[]> = {
     1: [
-      { name: "Boma Bar", type: "Open-air lounge", hours: "5:00 PM - 12:00 AM", image: venue2 },
-      { name: "River Deck", type: "Al fresco dining", hours: "12:00 PM - 10:00 PM", image: venue1 },
-      { name: "Savannah Restaurant", type: "All-day dining", hours: "6:30 AM - 10:30 PM", image: venue3 },
+      { name: "Boma Bar", type: "Open-air lounge", hours: "5:00 PM - 12:00 AM", image: beach },
+      { name: "River Deck", type: "Al fresco dining", hours: "12:00 PM - 10:00 PM", image: maasai },
+      { name: "Savannah Restaurant", type: "All-day dining", hours: "6:30 AM - 10:30 PM", image: beach },
     ],
     2: [
-      { name: "Summit Grill", type: "Steak & grill", hours: "12:00 PM - 10:30 PM", image: venue1 },
-      { name: "Amboseli Lounge", type: "Cocktails & jazz", hours: "4:00 PM - 12:30 AM", image: venue3 },
-      { name: "Pool Bar", type: "Snacks & smoothies", hours: "10:00 AM - 7:00 PM", image: venue2 },
+      { name: "Summit Grill", type: "Steak & grill", hours: "12:00 PM - 10:30 PM", image: pool },
+      { name: "Amboseli Lounge", type: "Cocktails & jazz", hours: "4:00 PM - 12:30 AM", image: beach },
+      { name: "Pool Bar", type: "Snacks & smoothies", hours: "10:00 AM - 7:00 PM", image: maasai },
     ],
     3: [
-      { name: "Beachfront Restaurant", type: "Seafood & Mediterranean", hours: "12:00 PM - 10:00 PM", image: venue1 },
-      { name: "Sunset Bar", type: "Sundowners & tapas", hours: "4:00 PM - 12:00 AM", image: venue2 },
-      { name: "Coffee Lounge", type: "Café & pastries", hours: "7:00 AM - 9:00 PM", image: venue3 },
+      { name: "Beach Bar", type: "Food and Snacks", hours: "11:00 AM - 4:00 PM", image: beach },
+      { name: "Maasai Bar", type: "Cocktails & Evening entertainment", hours: "6:00 PM - 11:00 PM", image: maasai },
+      { name: "Pool Bar", type: "All soft drinks, local beers, cocktails, wine", hours: "11:00 AM - 1:00 AM", image: pool },
     ],
   };
   type Room = { name: string; beds: string; size: string; price: string; desc: string; image: string };
@@ -108,16 +130,22 @@ const HotelDetails = () => {
       { name: "Garden Cottage", beds: "1 King + Sofa Bed", size: "60m²", price: hotel?.price || "$180", desc: "Standalone cottage nestled among acacia trees.", image: "https://source.unsplash.com/1200x800/?cottage,africa,lodge" },
     ],
     2: [
-      { name: "Deluxe Room", beds: "1 King Bed", size: "35m²", price: hotel?.price || "$145", desc: "Modern room with views towards Kilimanjaro.", image: "https://source.unsplash.com/1200x800/?mountain,lodge,room" },
-      { name: "Family Suite", beds: "2 Queen Beds", size: "55m²", price: hotel?.price || "$145", desc: "Two-room suite with a cozy lounge area.", image: "https://source.unsplash.com/1200x800/?resort,family,room" },
-      { name: "Summit Suite", beds: "1 King Bed", size: "45m²", price: hotel?.price || "$145", desc: "Premium suite with balcony and mountain vistas.", image: "https://source.unsplash.com/1200x800/?hotel,balcony,room" },
-      { name: "Garden Cottage", beds: "1 King + Sofa Bed", size: "60m²", price: hotel?.price || "$145", desc: "Cottage surrounded by tranquil gardens.", image: "https://source.unsplash.com/1200x800/?garden,cottage,room" },
+      { name: "Comfort Room", beds: "1 King Bed", size: "35m²", price: hotel?.price || "$145", desc: "Modern room with views towards Kilimanjaro.", image: comfort },
+      { name: "Family Suite", beds: "2 Queen Beds", size: "55m²", price: hotel?.price || "$145", desc: "Two-room suite with a cozy lounge area.", image: bahari },
+      { name: "Summit Suite", beds: "1 King Bed", size: "45m²", price: hotel?.price || "$145", desc: "Premium suite with balcony and mountain vistas.", image: ocean },
+      { name: "Garden Cottage", beds: "1 King + Sofa Bed", size: "60m²", price: hotel?.price || "$145", desc: "Cottage surrounded by tranquil gardens.", image: familyRoom },
     ],
     3: [
-      { name: "Deluxe Room", beds: "1 King Bed", size: "35m²", price: hotel?.price || "$200", desc: "Beach-chic room steps from the sand.", image: "https://source.unsplash.com/1200x800/?beach,resort,room" },
-      { name: "Family Suite", beds: "2 Queen Beds", size: "55m²", price: hotel?.price || "$200", desc: "Generous suite for families with extra seating.", image: "https://source.unsplash.com/1200x800/?family,beach,room" },
-      { name: "Ocean View Suite", beds: "1 King Bed", size: "45m²", price: hotel?.price || "$200", desc: "Suite with panoramic ocean views and balcony.", image: "https://source.unsplash.com/1200x800/?ocean,view,hotel,room" },
-      { name: "Garden Cottage", beds: "1 King + Sofa Bed", size: "60m²", price: hotel?.price || "$200", desc: "Tropical garden cottage for extra privacy.", image: "https://source.unsplash.com/1200x800/?tropical,garden,room" },
+      { name: "Comfort Room", beds: "Single/Double Beds", size: "35m²", price: hotel?.price || "$200", desc: "Enjoy your surroundings on your balcony with a beautiful view of our lush gardens.", image: comfort},
+      { name: "Bahari Room", beds: "1 King Bed", size: "55m²", price: hotel?.price || "$200", desc: "Relax a bit more. All Bahari are located closer to the beach and the pool.", image: bahari },
+      { name: "Ocean Suite", beds: "Double bed", size: "45m²", price: hotel?.price || "$200", desc: "Enjoy the Indian Ocean from your sunbed on your large terrace on the third floor or ground floor.", image: ocean },
+      { name: "Family Cottage", beds: "2 bedrooms ", size: "Single/Double beds", price: hotel?.price || "$200", desc: "Enjoy your surroundings on your balcony with a beautiful view of our lush gardens.", image: familyRoom },
+    ],
+    4: [
+      { name: "Deluxe Room", beds: "1 King Bed", size: "35m²", price: hotel?.price || "$160", desc: "Relax in a king-size bed, enjoy smart TV , and take advantage of premium amenities for an unforgettable stay", image: deluxe },
+      { name: "Family Suite", beds: "2 Queen Beds", size: "55m²", price: hotel?.price || "$160", desc: "Family room with separate sleeping areas and all the essentials for a cozy, connected stay.", image: family },
+      { name: "Standard", beds: "1 King Bed", size: "45m²", price: hotel?.price || "$160", desc: "This en-suite standard room offers everything you need for a restful and productive stay.", image: standard },
+      { name: "Standard Plus", beds: "1 King + Sofa Bed", size: "60m²", price: hotel?.price || "$160", desc: "Enjoy upgraded amenities, a spacious bathroom, smart TV, work area, mini fridge, and premium comfort for one or two guests", image: standardPlus },
     ],
   };
 
@@ -129,7 +157,7 @@ const HotelDetails = () => {
   ];
 
   const dining = diningByHotel[hotel?.id ?? -1] || defaultDishes;
-  const venues = venuesByHotel[hotel?.id ?? -1] || defaultVenues;
+  const venues = venuesByHotel[hotel?.id ?? -1] || [];
 
   // SEO: title, meta description, and canonical
   useEffect(() => {
@@ -209,7 +237,9 @@ const HotelDetails = () => {
                     <TabsTrigger value="overview">Overview</TabsTrigger>
                     <TabsTrigger value="rooms">Rooms</TabsTrigger>
                     <TabsTrigger value="dining">Dishes</TabsTrigger>
-                    <TabsTrigger value="venues">Restaurants &amp; Bars</TabsTrigger>
+                    {venues.length > 0 && (
+                      <TabsTrigger value="venues">Restaurants &amp; Bars</TabsTrigger>
+                    )}
                   </TabsList>
 
                   <TabsContent value="overview">
@@ -289,29 +319,31 @@ const HotelDetails = () => {
                     </div>
                   </TabsContent>
 
-                  <TabsContent value="venues">
-                    <div className="grid gap-6 sm:grid-cols-2">
-                      {venues.map((v, i) => (
-                        <Card key={i} className="overflow-hidden">
-                          <img
-                            src={v.image}
-                            alt={`${v.name} - ${v.type}`}
-                            className="w-full h-40 object-cover"
-                            loading="lazy"
-                          />
-                          <CardHeader>
-                            <CardTitle className="text-base">{v.name}</CardTitle>
-                            <CardDescription>{v.type} • {v.hours}</CardDescription>
-                          </CardHeader>
-                          <CardContent>
-                            <p className="text-sm text-muted-foreground">
-                              Enjoy signature specialties, friendly service, and a relaxed ambiance.
-                            </p>
-                          </CardContent>
-                        </Card>
-                      ))}
-                    </div>
-                  </TabsContent>
+                  {venues.length > 0 && (
+                    <TabsContent value="venues">
+                      <div className="grid gap-6 sm:grid-cols-2">
+                        {venues.map((v, i) => (
+                          <Card key={i} className="overflow-hidden">
+                            <img
+                              src={v.image}
+                              alt={`${v.name} - ${v.type}`}
+                              className="w-full h-40 object-cover"
+                              loading="lazy"
+                            />
+                            <CardHeader>
+                              <CardTitle className="text-base">{v.name}</CardTitle>
+                              <CardDescription>{v.type} • {v.hours}</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                              <p className="text-sm text-muted-foreground">
+                                Enjoy signature specialties, friendly service, and a relaxed ambiance.
+                              </p>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    </TabsContent>
+                  )}
                 </Tabs>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
