@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import FeaturedTours from "@/components/FeaturedTours";
 import Footer from "@/components/Footer";
@@ -9,6 +10,9 @@ import { MapPin, Star, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
+  useEffect(() => {
+    document.title = "Travel Buddies";
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

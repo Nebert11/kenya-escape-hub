@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Award, Users, Heart } from "lucide-react";
 
+import amboseli from "@/assets/amboseli-kilimanjaro.jpg";
+
 const About = () => {
   const stats = [
     { number: "500+", label: "Happy Travelers", icon: Users },
@@ -78,7 +80,7 @@ const About = () => {
             </div>
             <div className="relative">
               <img 
-                src="/src/assets/masai-mara-hero.jpg" 
+                src={amboseli}
                 alt="Kenya landscape"
                 className="rounded-lg shadow-lg w-full h-96 object-cover"
               />
@@ -149,7 +151,7 @@ const About = () => {
                 <CardTitle className="flex items-center gap-2">
                   <Award className="w-6 h-6 text-primary" />
                   Excellence
-                </CardTitle>
+                </CardTitle> 
               </CardHeader>
               <CardContent>
                 <CardDescription>
