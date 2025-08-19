@@ -6,6 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, Users, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import masaiMara from "@/assets/masai-mara-hero.jpg"
+import amboseli from "@/assets/amboseli-kilimanjaro.jpg"
+import dianiBeach from "@/assets/diani-beach.jpg"
+
 const Tours = () => {
   const tours = [
     {
@@ -15,7 +19,7 @@ const Tours = () => {
       duration: "3 Days",
       groupSize: "2-8 People",
       rating: 4.9,
-      image: "/src/assets/masai-mara-hero.jpg",
+      image: masaiMara,
       location: "Maasai Mara",
       category: "Safari"
     },
@@ -26,7 +30,7 @@ const Tours = () => {
       duration: "2 Days",
       groupSize: "2-6 People",
       rating: 4.8,
-      image: "/src/assets/amboseli-kilimanjaro.jpg",
+      image: amboseli,
       location: "Amboseli",
       category: "Safari"
     },
@@ -37,7 +41,7 @@ const Tours = () => {
       duration: "4 Days",
       groupSize: "2-10 People",
       rating: 4.7,
-      image: "/src/assets/diani-beach.jpg",
+      image: dianiBeach,
       location: "Diani",
       category: "Beach"
     }
