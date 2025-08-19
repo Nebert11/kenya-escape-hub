@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, Users, Star, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import dianiBeach from "@/assets/diani-beach.jpg"
+
 const HolidayPackages = () => {
   const packages = [
     {
@@ -15,7 +17,7 @@ const HolidayPackages = () => {
       duration: "Full Day",
       location: "Mombasa",
       rating: 4.8,
-      image: "/src/assets/diani-beach.jpg",
+      image: dianiBeach,
       description: "Experience the best of Mombasa in a single day with our comprehensive tour package.",
       highlights: [
         "Old Town exploration",
@@ -40,7 +42,7 @@ const HolidayPackages = () => {
       duration: "4-6 Hours",
       location: "Mombasa",
       rating: 4.6,
-      image: "/src/assets/diani-beach.jpg",
+      image: dianiBeach,
       description: "Discover Mombasa's vibrant nightlife scene with pick-up and drop-off service.",
       highlights: [
         "Pick-up & drop-off service",
