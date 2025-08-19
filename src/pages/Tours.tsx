@@ -47,32 +47,32 @@ const Tours = () => {
     }
   ];
 
-  const tourPackages = [
-    {
-      id: 1,
-      name: "Mashujaa Day Special",
-      description: "3-day Maasai Mara adventure celebrating Kenya's heroes",
-      price: "$450",
-      duration: "3 Days",
-      includes: ["Accommodation", "Game Drives", "All Meals"]
-    },
-    {
-      id: 2,
-      name: "Heritage Explorer",
-      description: "Cultural and wildlife combination package",
-      price: "$680",
-      duration: "5 Days", 
-      includes: ["2 Destinations", "Cultural Tours", "Safari Drives"]
-    },
-    {
-      id: 3,
-      name: "Beach & Safari Combo",
-      description: "Best of both worlds - wildlife and coast",
-      price: "$850",
-      duration: "7 Days",
-      includes: ["Maasai Mara", "Diani Beach", "All Transfers"]
-    }
-  ];
+  // const tourPackages = [
+  //   {
+  //     id: 1,
+  //     name: "Mashujaa Day Special",
+  //     description: "3-day Maasai Mara adventure celebrating Kenya's heroes",
+  //     price: "$450",
+  //     duration: "3 Days",
+  //     includes: ["Accommodation", "Game Drives", "All Meals"]
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Heritage Explorer",
+  //     description: "Cultural and wildlife combination package",
+  //     price: "$680",
+  //     duration: "5 Days", 
+  //     includes: ["2 Destinations", "Cultural Tours", "Safari Drives"]
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Beach & Safari Combo",
+  //     description: "Best of both worlds - wildlife and coast",
+  //     price: "$850",
+  //     duration: "7 Days",
+  //     includes: ["Maasai Mara", "Diani Beach", "All Transfers"]
+  //   }
+  // ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -164,7 +164,7 @@ const Tours = () => {
       </section>
 
       {/* Tour Packages Section */}
-      <section className="py-16 bg-muted/30">
+      {/* <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Tour Packages</h2>
@@ -213,7 +213,7 @@ const Tours = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>
