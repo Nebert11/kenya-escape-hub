@@ -5,6 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, User, ArrowRight } from "lucide-react";
  
+import dish1 from "@/assets/hotel/dishes/dish-1.jpg"
+import masaiMara from "@/assets/masai-mara-hero.jpg"
+import amboseli from "@/assets/amboseli-kilimanjaro.jpg"
+import dianiBeach from "@/assets/diani-beach.jpg"
+
+
 const Blog = () => {
   const blogPosts = [
     {
@@ -15,7 +21,7 @@ const Blog = () => {
       author: "James Kariuki",
       date: "December 15, 2024",
       category: "Safari Tips",
-      image: "/src/assets/masai-mara-hero.jpg",
+      image: masaiMara,
       featured: true
     },
     {
@@ -26,7 +32,7 @@ const Blog = () => {
       author: "Sarah Wanjiku",
       date: "December 10, 2024",
       category: "Culture",
-      image: "/src/assets/diani-beach.jpg",
+      image: dish1,
       featured: false
     },
     {
@@ -37,7 +43,7 @@ const Blog = () => {
       author: "David Ochieng",
       date: "December 5, 2024",
       category: "Conservation",
-      image: "/src/assets/amboseli-kilimanjaro.jpg",
+      image: amboseli,
       featured: false
     },
     {
@@ -48,7 +54,7 @@ const Blog = () => {
       author: "Sarah Wanjiku",
       date: "November 28, 2024",
       category: "Travel Tips",
-      image: "/src/assets/diani-beach.jpg",
+      image: dianiBeach,
       featured: false
     },
     {
@@ -59,7 +65,7 @@ const Blog = () => {
       author: "James Kariuki",
       date: "November 20, 2024",
       category: "Sustainability",
-      image: "/src/assets/masai-mara-hero.jpg",
+      image: masaiMara,
       featured: false
     },
     {
@@ -70,7 +76,7 @@ const Blog = () => {
       author: "David Ochieng",
       date: "November 15, 2024",
       category: "Photography",
-      image: "/src/assets/amboseli-kilimanjaro.jpg",
+      image: amboseli,
       featured: false
     }
   ];
