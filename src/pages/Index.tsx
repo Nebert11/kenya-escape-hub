@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Star, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import banner from "@/assets/banner.jpeg"
+
 const Index = () => {
   useEffect(() => {
     document.title = "Travel Buddies";
@@ -38,7 +40,7 @@ const Index = () => {
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="relative">
                   <img 
-                    src="/src/assets/diani-beach.jpg" 
+                    src={banner}
                     alt="Mombasa Holiday Packages"
                     className="w-full h-64 md:h-80 object-cover"
                   />
