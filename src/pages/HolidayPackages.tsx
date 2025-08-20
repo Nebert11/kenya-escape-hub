@@ -7,6 +7,7 @@ import { MapPin, Clock, Users, Star, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import dianiBeach from "@/assets/diani-beach.jpg"
+import banner from "@/assets/banner.jpeg"
 
 const HolidayPackages = () => {
   const packages = [
@@ -108,7 +109,7 @@ const HolidayPackages = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-xl overflow-hidden shadow-2xl">
             <img 
-              src="/src/assets/diani-beach.jpg" 
+              src={banner}
               alt="Mombasa Holiday Packages"
               className="w-full h-auto"
             />
