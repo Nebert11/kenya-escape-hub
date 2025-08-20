@@ -15,15 +15,19 @@ const Contact = () => {
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
+
     const currentForm = form.current;
     if (!currentForm) {
       setSending(false);
       return;
     }
 
+    //Send Email to sit owner
     emailjs
       .sendForm("service_xo6xgi2", "template_072nxxe", currentForm, "ntlMGLxV3PE4BHcM9")
       .then(() => {
+        //Send auto-reply to sender
+        emailjs.sendForm("service_xo6xgi2", "template_autoreply", currentForm, "ntlMGLxV3PE4BHcM9");
         setSending(false);
         setSent(true);
         alert("Booking submitted! We'll contact you shortly.");
