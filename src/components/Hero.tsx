@@ -1,9 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Users, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+
 import masaiMaraHero from "@/assets/masai-mara-hero.jpg";
+import bg1 from "@/assets/background/bg-1.jpg"
+import bg2 from "@/assets/background/bg-2.jpg"
+import bg3 from "@/assets/background/bg3.jpg"
+import bg4 from "@/assets/background/bg-4.jpg"
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const images = [bg1, bg2, bg3, bg4];
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+
+
   const stats = [
     { icon: Users, value: "50K+", label: "Happy Travelers" },
     { icon: Award, value: "15+", label: "Years Experience" },
@@ -13,14 +32,18 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${masaiMaraHero})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-hero opacity-70"></div>
-      </div>
+      {images.map((img, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-[5000ms] ease-in-out transform ${
+            index === current ? "opacity-100 scale-105 z-10" : "opacity-0 scale-100 z-0"
+          }`}
+          style={{ backgroundImage: `url(${img})` }}
+        >
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-hero opacity-60" />
+        </div>
+      ))}
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
