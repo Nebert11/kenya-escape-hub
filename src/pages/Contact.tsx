@@ -55,6 +55,8 @@ const Contact = () => {
         <div className="max-w-3xl mx-auto px-4">
           <form ref={form} onSubmit={sendEmail} className="space-y-8 bg-white p-8 shadow-lg rounded-lg">
             <h2 className="text-2xl font-bold text-orange-600">Contact Details</h2>
+            {/* Hidden field to route emails via EmailJS to the correct inbox */}
+            <input type="hidden" name="to" value="info.travelbuddiesafaris@gmail.com" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>

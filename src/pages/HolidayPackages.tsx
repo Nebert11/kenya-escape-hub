@@ -232,7 +232,7 @@ const HolidayPackages = () => {
             <div className="text-center">
               <Mail className="w-8 h-8 text-white mx-auto mb-2" />
               <p className="text-white font-semibold">Email</p>
-              <p className="text-white/90">travelbuddies@gmail.com</p>
+              <p className="text-white/90">info.travelbuddiesafaris@gmail.com</p>
             </div>
             <div className="text-center">
               <MapPin className="w-8 h-8 text-white mx-auto mb-2" />
