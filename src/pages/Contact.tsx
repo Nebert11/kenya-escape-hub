@@ -22,12 +22,30 @@ const Contact = () => {
       return;
     }
 
-    //Send Email to sit owner
+    //Send Email to site owner
     emailjs
       .sendForm("service_xo6xgi2", "template_072nxxe", currentForm, "ntlMGLxV3PE4BHcM9")
       .then(() => {
-        //Send auto-reply to sender
-        emailjs.sendForm("service_xo6xgi2", "template_autoreply", currentForm, "ntlMGLxV3PE4BHcM9");
+        //Send auto-reply to sender with explicit params to control from/reply-to
+        const formData = new FormData(currentForm);
+        const userEmail = String(formData.get("email") || "");
+        const firstName = String(formData.get("first_name") || "");
+        const lastName = String(formData.get("last_name") || "");
+
+        emailjs.send(
+          "service_xo6xgi2",
+          "template_autoreply",
+          {
+            to_email: userEmail,
+            to: userEmail,
+            to_name: firstName || "Traveler",
+            customer_name: `${firstName} ${lastName}`.trim(),
+            reply_to: userEmail,
+            from_email: "info.travelbuddiesafaris@gmail.com",
+            from_name: "Travel Buddies Safaris",
+          },
+          "ntlMGLxV3PE4BHcM9"
+        );
         setSending(false);
         setSent(true);
         alert("Booking submitted! We'll contact you shortly.");
