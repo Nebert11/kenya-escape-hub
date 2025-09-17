@@ -7,7 +7,8 @@ import bg1 from "@/assets/background/bg-1.jpg"
 import bg2 from "@/assets/background/bg-2.jpg"
 import bg3 from "@/assets/background/bg3.jpg"
 import bg4 from "@/assets/background/bg-4.jpg"
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { getReviewStats } from "@/lib/reviews";
 
 const Hero = () => {
   const images = [bg1, bg2, bg3, bg4];
@@ -23,10 +24,11 @@ const Hero = () => {
 
 
 
+  const reviewStats = useMemo(() => getReviewStats(), []);
   const stats = [
-    { icon: Users, value: "50K+", label: "Happy Travelers" },
-    { icon: Award, value: "15+", label: "Years Experience" },
-    { icon: Star, value: "4.9", label: "Average Rating" },
+    { icon: Users, value: `${reviewStats.totalTravelers.toLocaleString()}+`, label: "Happy Travelers" },
+    { icon: Award, value: "5+", label: "Years Experience" },
+    { icon: Star, value: reviewStats.averageRating.toFixed(1), label: "Average Rating" },
   ];
 
   return (

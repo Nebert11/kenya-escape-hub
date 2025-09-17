@@ -8,9 +8,9 @@ import amboseli from "@/assets/amboseli-kilimanjaro.jpg";
 
 const About = () => {
   const stats = [
-    { number: "500+", label: "Happy Travelers", icon: Users },
-    { number: "50+", label: "Tour Packages", icon: MapPin },
-    { number: "10+", label: "Years Experience", icon: Award },
+    { number: "100+", label: "Happy Travelers", icon: Users },
+    { number: "20+", label: "Tour Packages", icon: MapPin },
+    { number: "5+", label: "Years Experience", icon: Award },
     { number: "100%", label: "Customer Satisfaction", icon: Heart }
   ];
 

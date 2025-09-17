@@ -196,7 +196,9 @@ const HolidayPackages = () => {
                     
                     <div className="flex flex-col gap-3 pt-4">
                       <Button variant="safari" size="lg" asChild>
-                        <Link to="/contact">Book Your Adventure!</Link>
+                        <Link to={`/contact?type=package&id=${pkg.id}&name=${encodeURIComponent(pkg.title)}&location=${encodeURIComponent(pkg.location)}&duration=${encodeURIComponent(pkg.duration)}&price=${encodeURIComponent(pkg.price)}`}>
+                          Book Your Adventure!
+                        </Link>
                       </Button>
                       <Button variant="outline" asChild>
                         <a href="tel:+254711278366">

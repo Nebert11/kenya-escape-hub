@@ -17,9 +17,11 @@ const Contact = () => {
   const contextType = (params.get("type") || "").toLowerCase();
   const isHotel = contextType === "hotel";
   const isTour = contextType === "tour";
+  const isPackage = contextType === "package";
   const itemId = params.get("id") || "";
   const itemName = params.get("name") || "";
   const roomName = params.get("room") || "";
+  const price = params.get("price") || "";
 
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,13 +57,15 @@ const Contact = () => {
 
       <section className="py-20 bg-gradient-to-r from-orange-500 to-orange-600 text-center text-white">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          {isHotel ? "Book Your Stay" : isTour ? "Book Your Safari" : "Enquire Now"}
+          {isHotel ? "Book Your Stay" : isTour ? "Book Your Safari" : isPackage ? "Book Your Package" : "Enquire Now"}
         </h1>
         <p className="text-xl text-white/90 max-w-2xl mx-auto">
           {isHotel
             ? "Complete your hotel booking request and our team will confirm availability."
             : isTour
             ? "Send your safari enquiry and we’ll help tailor your adventure."
+            : isPackage
+            ? "Lock in your holiday package with your preferred dates and group size."
             : "Plan your perfect Kenya adventure with our personalized service."}
         </p>
       </section>
@@ -76,6 +80,7 @@ const Contact = () => {
             <input type="hidden" name="item_id" value={itemId} />
             <input type="hidden" name="item_name" value={itemName} />
             {roomName ? <input type="hidden" name="room_name" value={roomName} /> : null}
+            {price ? <input type="hidden" name="price" value={price} /> : null}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -119,6 +124,25 @@ const Contact = () => {
                 <div>
                   <Label>Guests *</Label>
                   <Input type="number" name="guests" min={1} defaultValue={2} required />
+                </div>
+              </div>
+            ) : isPackage ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="md:col-span-2">
+                  <Label>Package *</Label>
+                  <Input type="text" name="package_name" value={itemName} readOnly required />
+                </div>
+                <div>
+                  <Label>Check-in Date *</Label>
+                  <Input type="date" name="check_in" required />
+                </div>
+                <div>
+                  <Label>Check-out Date *</Label>
+                  <Input type="date" name="check_out" required />
+                </div>
+                <div>
+                  <Label>Travelers *</Label>
+                  <Input type="number" name="travelers" min={1} defaultValue={2} required />
                 </div>
               </div>
             ) : (

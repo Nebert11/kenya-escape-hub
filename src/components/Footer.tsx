@@ -1,6 +1,12 @@
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import about from "@/pages/About"
+import hotels from "@/pages/Hotels";
+import holidayPackages from "@/pages/HolidayPackages";
+import blog from "@/pages/Blog";
+import contact from "@/pages/Contact";
+import tours from "@/pages/Tours";
 
 const Footer = () => {
   const footerLinks = {
@@ -10,12 +16,12 @@ const Footer = () => {
       { name: "Holiday Packages", href: "/holiday-packages" },
       { name: "Blog", href: "/blog" },
     ],
-    "Destinations": [
-      { name: "Maasai Mara", href: "/tours/masai-mara" },
-      { name: "Amboseli", href: "/tours/amboseli" },
-      { name: "Diani Beach", href: "/tours/diani" },
-      { name: "Mount Kenya", href: "/tours/mount-kenya" },
-    ],
+    // "Destinations": [
+    //   { name: "Maasai Mara", href: "/tours/masai-mara" },
+    //   { name: "Amboseli", href: "/tours/amboseli" },
+    //   { name: "Diani Beach", href: "/tours/diani" },
+    //   { name: "Mount Kenya", href: "/tours/mount-kenya" },
+    // ],
     "Support": [
       { name: "Contact Us", href: "/contact" },
       { name: "FAQ", href: "/faq" },
@@ -83,7 +89,7 @@ const Footer = () => {
         </div>
 
         {/* Newsletter */}
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8">
+        {/* <div className="border-t border-primary-foreground/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <h3 className="text-lg font-semibold mb-2 text-safari-gold">Stay Updated</h3>
@@ -100,7 +106,7 @@ const Footer = () => {
               </Button>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Social Links & Copyright */}
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">

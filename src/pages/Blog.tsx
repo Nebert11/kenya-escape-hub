@@ -94,7 +94,7 @@ const Blog = () => {
       <section className="relative py-20 bg-gradient-safari">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Kenya Travel Blog
+            Travel Buddies Blog
           </h1>
           <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
             Discover travel tips, wildlife insights, and cultural stories from the heart of East Africa.
