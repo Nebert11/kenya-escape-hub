@@ -22,14 +22,14 @@ const About = () => {
       image: "/placeholder.svg"
     },
     // {
-    //   name: "Nebert Ngari",
+    //   name: "Nebert Ngari",                                                                                                                                                                                                                                                                                                        
     //   role: "Co-Founder",
     //   description: "",
     //   image: "/placeholder.svg"
-    // },
+    // },                                                                                                               
     {
       name: "Nebert Ngari",
-      role: "Customer Experience Manager",
+      role: "Co-Founder & Customer Experience Manager",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
       description: "Ensures every guest has an unforgettable experience during their stay in Kenya.",
       image: "/placeholder.svg"
     }

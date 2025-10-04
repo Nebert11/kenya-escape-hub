@@ -26,7 +26,7 @@ const Blog = () => {
     },
     {
       id: 2,
-      title: "10 Must-Try Kenyan Dishes During Your Visit",
+      title: "10 Must-Try Dishes During Your Visit",
       excerpt: "Explore Kenya's rich culinary heritage with these traditional dishes that will tantalize your taste buds.",
       content: "Kenyan cuisine is a delightful fusion of African, Arab, and Indian influences...",
       author: "Sarah Wanjiku",
